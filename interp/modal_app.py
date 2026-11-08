@@ -86,6 +86,23 @@ class G:
         return dict(n=len(P), shape=list(np.stack(H).shape))
 
     @modal.method()
+    def extract_layers(self, rows, layers):
+        import numpy as np
+        P, H = [], []
+        for r in rows:
+            p, top, hs = self.forward(r, True)
+            P.append(p); H.append(hs[layers])
+        return dict(p=P, h=np.stack(H).tolist())
+
+    @modal.method()
+    def steer_many(self, jobs):
+        out = []
+        for j in jobs:
+            print("steer", j["name"], j["layer"], j["alphas"], len(j["rows"]))
+            out.append(dict(name=j["name"], res=self.steer.local(j["rows"], j["vec"], j["layer"], j["alphas"])))
+        return out
+
+    @modal.method()
     def steer(self, rows, vecs, layer, alphas):
         """Add alpha * unit vector to the residual output of decoder layer `layer` at every position."""
         torch = self.torch
@@ -143,3 +160,28 @@ def steer(spec: str = "steer_spec.json"):
         x.update(meta[x["i"]])
     json.dump(res, open(sp["out"], "w"))
     print("saved", sp["out"], len(res))
+
+
+@app.local_entrypoint()
+def extract_cls(out: str = "cls_acts.npz"):
+    import numpy as np
+    from scenarios import build_cls
+    rows = build_cls()
+    r = G().extract_layers.remote(rows, [36, 44])
+    np.savez(out, p=np.array(r["p"]), h=np.array(r["h"], dtype=np.float16))
+    print("saved", out, len(rows))
+
+
+@app.local_entrypoint()
+def steer_batch(spec: str = "batch_spec.json", out: str = "steer_batch.json"):
+    from scenarios import build
+    specs = json.load(open(spec)); rows = build(); jobs = []
+    for sp in specs:
+        rs = [r for r in rows if r["role"] == sp["role"] and r["world"] in sp["worlds"]]
+        jobs.append(dict(name=sp["name"], rows=rs, vec=sp["vec"], layer=sp["layer"], alphas=sp["alphas"]))
+    res = G().steer_many.remote(jobs)
+    for j, x in zip(jobs, res):
+        for y in x["res"]:
+            r = j["rows"][y["i"]]; y.update(scen=r["scen"], world=r["world"], me=r["me"], prop=r["prop"])
+    json.dump(res, open(out, "w"))
+    print("saved", out)
