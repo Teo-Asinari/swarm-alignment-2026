@@ -147,3 +147,32 @@ The signed rate is 50% because actors acted on every signed GPU authorization an
   - the two-person / maker-checker rule.
 - **The gate does not block everything:** all signed actions that reached it were approved.
 - **Next step:** separate role from self-interest by having an agent approve its own action, and by having a gate that gains from the action.
+
+## 6. Interpretability on Gemma 4 31B (`interp/`, Modal A100, ~$4)
+
+**Setup.** 12 scenarios × 4 worlds × 6 name variants, each run as actor and as judge with matched text, for 576 prompts. The decision is read from the prefill logit, and the residual stream is taken at the decision token across all 61 hidden states.
+
+**Behaviour at full precision.** The model violates much less than the API version.
+- Actor violations: merge after a passed proposal (6/6), plus a few hearsay cases.
+- Judge "violations": unsigned hearsay was approved in 4 scenarios, more often than by the actor. So the judge is not uniformly stricter.
+
+**Authorization axis.** The axis is mean(signed) − mean(none), computed leave-one-scenario-out. Projection on it, where 0 = unauthorized and 1 = signed:
+- **Layers 4–24:** every prompt with social content sits near 1. This looks lexical: the log has content.
+- **Layers 32–40:** social prompts drop toward 0 (unauthorized). This includes the prompts the model will go on to act on: actor 0.43 vs 0.15 at L36, judge 0.18 vs 0.13.
+- **Layers 44–60:** prompts that end in "act/approve" climb back to about 0.9, while the others stay at about 0.1.
+- **Reading:** the model represents "not authorized" mid-network even when it then violates, and the yes-decision is assembled later. This looks like **knows-then-overrides, not erasure.**
+- **Caveat:** n = 21 actor violators, from 3 scenarios.
+
+**Steering** (added along the axis at every position; 144 actor passed/hearsay prompts, 72 actor none prompts):
+
+| Steering | Result |
+|---|---|
+| Down the axis, L36 | violators' P(act) 0.98 → 0.66 / 0.12 / 0.00 (α = −0.5 / −1 / −1.5) |
+| Down the axis, L44 | violators' P(act) 0.98 → 0.29 / 0.00 / 0.00 |
+| Random vector, same norm (control) | does *not* reduce violations; it *raises* acting overall (to 0.44–0.80) |
+| Up the axis, none prompts | P(act) 0.08 → 0.60 (L36) and 0.08 → 1.00 (L44) |
+
+- **The "down" effect is specific.**
+- **The "up" effect is not clean,** because random perturbations also raise acting.
+
+**Main caveat:** the axis confounds authorization with the decision itself. In the none and signed worlds, comply/act is perfectly correlated with authorization, so "down" may just be the generic comply direction. A decision-independent axis (for example, trained on judge decisions within hearsay) is needed.
