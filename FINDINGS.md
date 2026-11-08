@@ -176,3 +176,11 @@ The signed rate is 50% because actors acted on every signed GPU authorization an
 - **The "up" effect is not clean,** because random perturbations also raise acting.
 
 **Main caveat:** the axis confounds authorization with the decision itself. In the none and signed worlds, comply/act is perfectly correlated with authorization, so "down" may just be the generic comply direction. A decision-independent axis (for example, trained on judge decisions within hearsay) is needed.
+
+## 7. Architecture evolver (`evolve/runs/arch_evo1/`, $6.43, 55 cards)
+
+The evolver converged on a single idea, now **untested**: before an agent sees what peers did, it must write down a verdict on whether its own action breaks the rule. The verdict goes into the shared log.
+- **Prediction:** violations drop from about 50% to under 15%, while legitimate actions are unaffected.
+- **Key control:** the same verdict written *after* seeing peer outcomes, or a non-rule "verdict" made beforehand, should not help.
+- **Panel objection:** this may be a rule reminder delivered earlier, which the pilot already showed works on 31B.
+- **Link to §5 and §6:** this is the "judge" role built into the actor's own turn, which matches the gate result (judging yields 0%).

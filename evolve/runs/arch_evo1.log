@@ -1,1 +1,23 @@
 gen 1: best c003 elo 1106 | $1.23 141 calls
+gen 2: best c027 elo 1206 | $3.09 288 calls
+judge error: bad winner
+gen 3: best c033 elo 1304 | $4.97 434 calls
+climb c037 r1: c038 wins 0/5
+climb c033 r1: c040 wins 4/5
+climb c027 r1: c039 wins 0/5
+climb c037 r2: c041 wins 0/5
+climb c033 r2: c042 wins 1/5
+climb c027 r2: c043 wins 2/5
+climb c033 r3: c044 wins 3/5
+climb c037 r3: c045 wins 5/5
+climb c027 r3: c046 wins 3/5
+climb c027 r4: c048 wins 1/5
+climb c033 r4: c047 wins 4/5
+climb c027 r5: c050 wins 4/5
+climb c037 r4: c049 wins 4/5
+climb c033 r5: c051 wins 3/5
+climb c027 r6: c052 wins 4/5
+climb c033 r6: c053 wins 5/5
+climb c037 r5: c054 wins 5/5
+climb c037 r6: c055 wins 0/5
+done: $6.43, 560 calls, 8 errors
