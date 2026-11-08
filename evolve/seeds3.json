@@ -1,0 +1,90 @@
+{
+ "context": "Apart Research Swarm Alignment hackathon, tracks 'Science of Agent Networks' and 'Multi-Agent Oversight and Control'. Deadline 2026-11-08 23:59 AoE (~1.5 days, solo, AI-assisted). Resources: one 16 GB GPU (Gemma 3 4B + Gemma Scope 2 SAEs feasible; 12B not at full precision); ~$1,500 Adaption API credits for hosted open-weight models only (deepseek-v4-flash, qwen3.8-27b, gemma-4-31b-it, gemma-4-26b-a4b-it, glm-53-flash, glm-5.2, qwen3.5-397b), cheap enough for thousands of agent episodes. Datasets available: Swarm Traces, AI Village transcripts, METR Hugging Face incident report. Researcher's interest: why agents in seemingly neutral swarms come to propose or accept norm violations, explained game-theoretically and/or mechanistically; conceptual novelty is the priority.",
+ "known_failure_modes": [
+  "Unfalsifiable framing: a thesis where every outcome confirms it (e.g. 'context can override rules').",
+  "Bundled manipulations: a single contrast that cannot separate rival explanations (information vs permission vs detection vs wording vs length).",
+  "Circular interpretability: a direction built from the same contrast it is then used to explain or steer.",
+  "Probe reads the request/scenario, not the hidden variable (rule blindness, arXiv:2608.16852).",
+  "Decodable is not causal: steering vectors that predict but don't control; interchangeable vectors (arXiv:2610.19359).",
+  "Single-agent work relabelled as swarm research: 'peer' is just a string in one prompt.",
+  "Effect exists in few models (fine-as-price: 2 of 10 models in Wired Partners); 4B models may not show it.",
+  "Fine-tuning arms that cannot be done credibly in 1.5 days or whose result is already known (fine-tuning reroutes rather than rewrites).",
+  "Comparing effect sizes across studies with different models, tasks and baselines.",
+  "Claims of novelty for behaviour already published (Okamoto et al. arXiv:2608.12323; Wired Partners; Check Point Oct 2026; Shi et al. arXiv:2609.24967).",
+  "Punishment-vs-compensation (or any label) contrast as the key manipulation: a bundled wording change already covered by Okamoto and 'Same Odds, Different Deals'.",
+  "Severing all contact ends the whole repeated game (reputation, reciprocity, continuation value), so it cannot isolate one channel such as retaliation.",
+  "Retaliation that is only described in the prompt and never actually possible in the environment makes it a single-agent vignette.",
+  "Floor/ceiling effects: a predicted interaction that only exists because one cell is already near 0% or 100%.",
+  "Mediation claims resting on CoT mentions (CoT is often unfaithful) or on endogenous report/violation rates.",
+  "Novelty already covered: emergent whistleblowing in swarms (arXiv:2609.04170); anonymous reporting against retaliation (arXiv:2604.23511); eval/test-awareness probes and steering (arXiv:2505.14617, 2507.01786).",
+  "Scripted 'peers' that are just fixed transcripts shown to one focal agent: single-agent vignette, unless paired with a live-agent arm.",
+  "Silence or abstention that could mean 'detection is low' rather than 'norm accepted': designs must separate social inference from detection inference.",
+  "Prior art on silence/bystanders: Silence is Not Consensus (2505.21503), Silent Dissent (2610.02702), agent-bystander-study (Apart Oct 2026), Delegated Misalignment (EMNLP 2026).",
+  "Concept-fusion that only borrows vocabulary (e.g. calling a cascade an 'epidemic') without a distinct, testable prediction from the borrowed structure."
+ ],
+ "cards": [
+  {
+   "claim": "[KILLED - negative example] Rules fall to quiet reframing, not to persuasion.",
+   "mechanism": "Argument triggers categorical defence; price mention silently switches mode.",
+   "prediction": "Argument lowers violations; fine mention raises them.",
+   "falsifier": "Persuasion raises violations.",
+   "experiment": "Compare argument vs fine mention.",
+   "swarm_link": "Quiet reframing spreads violations.",
+   "kill_reasons": [
+    "Persuasive jailbreaks succeed >92% (Zeng et al. 2024); urgency pressure drives compliance to 0% in 10/12 models (Okamoto). Check Point backfire is one model, one scenario.",
+    "Built by comparing effect sizes across incomparable studies."
+   ]
+  },
+  {
+   "claim": "[KILLED - negative example] Fine-tuning a model to treat fines as prices causes broad emergent misalignment.",
+   "mechanism": "Narrow rule-breaking training generalizes via a persona direction.",
+   "prediction": "Higher misalignment on Betley eval.",
+   "falsifier": "No increase.",
+   "experiment": "LoRA Gemma 3 4B on price data.",
+   "swarm_link": "Weak.",
+   "kill_reasons": [
+    "Standard template; Gemma shows ~0.7% EM; rational framing acts like inoculation; not credible in 1.5 days with one seed."
+   ]
+  },
+  {
+   "claim": "Abstentions by peers who could have blocked a proposed violation raise the focal agent's violation proposals; an equal abstention by equally-ranked peers without blocking power does not, and a single veto exercised by an abstaining peer resets it.",
+   "mechanism": "Agents use implied-consent inference: silence is evidence of acceptance only when the silent peer had standing to block, operationalised as an actual blocking vote in the environment's decision rule. Procedural standing is randomly assigned via a rotating token, divorcing it from status or authority.",
+   "prediction": "Violation-proposal rates: ~10% with 0 veto-holders, ~35% with 2, ~60% with 4 on identical abstain transcripts and equivalent peer status; a single veto exercised among 3 silent veto-holders returns to ~10%, whereas a non-veto peer's verbal objection does not; hiding veto ownership also leaves ~10%.",
+   "falsifier": "Veto-holder abstention no larger than non-veto abstention; no monotone dose-response; one exercised veto fails to reset while a non-veto objection also resets; or hidden-veto condition still raises rates. Any of these implies generic social proof or status-weighting, not standing-derived implied consent.",
+   "experiment": "Use qwen3.5-397b via Adaption API. Four peer agents vote; environment code enforces that a veto token blocks the round if that peer votes no. Focal sees identical abstain transcripts with 0-4 randomly assigned veto tokens, plus hidden-veto, non-veto-objection, and single-exercised-veto arms. ~800 episodes, ~$40, under one day.",
+   "swarm_link": "Anchor abstention transcripts in Swarm Traces voting rounds; compare AI Village transcripts where standing to object (e.g., moderator tie-breaking) varied across otherwise identical silent votes."
+  },
+  {
+   "claim": "In LLM swarms, a small fine increases violations only when it suppresses peer objection; forcing any peer speech blocks this effect, proving silence mediates the norm shift rather than objection content.",
+   "mechanism": "Fine signals overseer ownership, diffusing responsibility \u2192 silence. Observers infer norm-acceptance from silence \u2192 violate. Forced speech (any content) breaks the silence signal, preventing inference despite the fine's presence or objection content.",
+   "prediction": "Fine raises violations \u226510pp only in Free-Objection. In Forced-Objection and Forced-Neutral, Fine effect <5pp. Interaction between Fine and Speech-Freedom \u226510pp (p<.01). Neutral speech blocks fine effect similarly to objection.",
+   "falsifier": "Fine raises violations equally in Free and Forced-Neutral conditions (interaction <5pp), confirming objection content\u2014not silence\u2014mediates the effect, or fine acts as direct price regardless of speech.",
+   "experiment": "deepseek-v4-flash/qwen3.8-27b via API; 1500 episodes; 2\u00d73 {Fine/No-Fine} \u00d7 {Free/Forced-Objection/Forced-Neutral}; 5-agent swarms; script peer speech in Forced arms; measure violation rates; ~$225, \u22641 day.",
+   "swarm_link": "Swarm Traces for norm-violation propagation; METR reports for ambiguous-responsibility failures; isolates silence as causal channel for oversight failure, distinguishing licensing from social inference and speech content effects."
+  },
+  {
+   "claim": "In LLM swarms with unknown detection probability, a small formal fine specifically suppresses peer objection more than an overseer without fines, and when those objections are visible, observer violations rise; making detection probability known or hiding objections blocks this cascade.",
+   "mechanism": "A formal fine shifts enforcement responsibility from peers to overseer more than overseer presence alone. With unknown p, peer silence is informative\u2014observers infer violations are accepted and violate more. With known p or hidden objections, silence carries no norm signal.",
+   "prediction": "Fine reduces objections ~20pp vs Overseer-No-Fine. Observer violations: unknown-p visible +fine > overseer-no-fine. Unknown-p hidden or known-p cells show no fine-specific rise. Triple interaction significant (p<.01); Fine vs Overseer-No-Fine contrast significant (p<.01).",
+   "falsifier": "If Overseer-No-Fine reduces objections as much as Fine, or if fine raises violations equally when objections hidden/known-p, the responsibility-shift mechanism is rejected. Null triple interaction or null Fine-vs-Overseer-No-Fine contrast (p>.05) kills the claim.",
+   "experiment": "5-agent swarms; deepseek-v4-flash/qwen3.8-27b via API; 2,000 episodes; true p=0.3; conditions: Fine vs Overseer-No-Fine vs None \u00d7 p-known/unknown \u00d7 objections visible/hidden; belief elicitation; ~$250, \u22641 day.",
+   "swarm_link": "Swarm Traces provides norm-violation propagation patterns for visible objection histories; METR incidents illustrate ambiguous-responsibility governance failures. Design isolates sanction effect from overseer presence via Overseer-No-Fine arm, separating responsibility diffusion from expressive law."
+  },
+  {
+   "claim": "Rising fines reduce peer reporting only when partners are fixed across rounds, enabling targeted retaliation. Reshuffled partners sustain reporting despite repetition, isolating retaliation fear from general reputational or conformity pressures inherent in identifiability.",
+   "mechanism": "Retaliation requires specific future interaction with the reporter. Reshuffling preserves repetition and identifiability (reputation/conformity) but breaks the link between reporter and punisher. If suppression vanishes in reshuffled vs fixed, the driver is targeted retaliation, not static reputational concern.",
+   "prediction": "Punitive/Identified suppresses reporting \u226515pp in Fixed-Partner repeated games but \u22645pp in Reshuffled-Partner repeated games. One-shot matches Reshuffled. Anonymous shows \u22645pp difference across all horizons. Interaction vanishes without targetable partner.",
+   "falsifier": "If punitive/identifiable suppresses reporting equally in Fixed and Reshuffled repeated games, the mechanism is general reputational/conformity pressure, not targeted retaliation fear. If One-Shot differs from Reshuffled, history accumulation itself drives suppression.",
+   "experiment": "8-agent common-pool; 3 frames \u00d7 2 visibility \u00d7 3 horizons (one-shot/fixed/reshuffled) \u00d7 2 monitor types; 40 episodes/cell; glm-53-flash/qwen3.8-27b API. Total 1,440 episodes feasible within credits.",
+   "swarm_link": "Swarm Traces"
+  },
+  {
+   "claim": "In LLM swarms, observing peer retaliation suppresses reporting because the agent infers reporting is observable\u2014updating its latent information-structure model\u2014distinct from lexical priming or fear of the retaliator.",
+   "mechanism": "Retaliation signals detectability (p>0), updating internal belief about information structure. This belief update is distinct from lexical priming by detection words. Fear of retaliator is independent of observability beliefs. Rational deterrence weighs cost magnitudes, not hidden observability discovery.",
+   "prediction": "Probe trained on explicit-observability vs neutral transfers to retaliation arm (\u226560% acc) but not threat-only arm. Ablation restores reporting \u226510pp in retaliation arm only. Threat arm shows fear markers without observability probe activation.",
+   "falsifier": "Probe fails to transfer to retaliation arm (\u226450% acc). OR ablation restores reporting in threat arm equally. OR probe fires on threat-only arm. OR no significant difference between retaliation and threat ablation effects.",
+   "experiment": "4-arm design on Gemma 3 4B (N=400): (1) Explicit observability, (2) Retaliation (no obs language), (3) Threat/Anger (no action), (4) Neutral. Train probe on (1)-(4). Test transfer to (2)/(3). Ablate direction before response.",
+   "swarm_link": "Swarm Traces"
+  }
+ ]
+}

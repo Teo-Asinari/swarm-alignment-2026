@@ -1,0 +1,120 @@
+## LLM Behavioral Economics & Games
+- Horton (arXiv:2301.07543): "Homo silicus" LLM experiments; replicates dictator, price-gouging, status-quo studies; no fines tested.
+- Aher et al. (arXiv:2208.10264, ICML 2023): LLM Ultimatum Game, Milgram, wisdom of crowds; no fines or crowding-out.
+- Romano et al. (IZA DP17521): LLM Yamagishi PD replication; framing effects small for stronger models; no fines.
+- Akata et al. (arXiv:2305.16867, NHB 2025): GPT-4 scores 0.854 in repeated 2×2 games; grim trigger; fails coordination.
+- Duan et al. (arXiv:2402.12348, NeurIPS 2024): GTBench; LLMs struggle in deterministic games; CoT/ToM don't always help.
+- Jia et al. (NeurIPS 2024, arXiv:2406.05972): ChatGPT-4, Claude-3-Opus, Gemini-1.0 show human-like risk/loss aversion; overweight small p.
+- Lorè & Heydari (arXiv:2309.05898): GPT-3.5 driven by context not best response; GPT-4/LLaMa-2 respond to structure and framing.
+- Robinson & Burden (arXiv:2503.04840): High context dependence in PD; criticizes static contexts and explicit payoff matrices.
+## LLM Collusion & Markets
+- Fish et al. (arXiv:2404.00806, EC 2026): GPT-4 Bertrand agents collude without instruction; prompt prefix shifts prices near monopoly.
+- Syrnikov et al. (arXiv:2601.11369): Governance graph with sanctions cuts severe collusion 50%→5.6%; prompt-only constitutions no improvement. N=90.
+- Piatti et al. (arXiv:2404.16698, NeurIPS 2024): GovSim; GPT-4o survives 53.3%, GPT-4 6.7%; removing communication raises over-use 22%.
+- Piedrahita et al. (arXiv:2506.23276, COLM 2025): Reasoning LLMs (o1) free-ride more in public-goods; opt out of sanctioning.
+- Business Arena (arXiv:2608.08621): Marketplace benchmark; MiniMax M2.5 averaged 22.7 violations, $51,750 in fines.
+- FAIRGAME (arXiv:2504.14325): Payoff-sensitive and framing-sensitive defection in LLM game play.
+- Sticky Collusion (arXiv:2610.39660): Payoff penalty had no significant effect on LLM collusion.
+## LLM Fines & Deterrence
+- Okamoto et al. (arXiv:2608.12323, AIES 2026): 12-model procurement test; small fine lowers compliance ("penalty paradox"); Gemini 3 Flash 100%→34%.
+- Emad Eldin / "Wired Partners" (Apart sprint, Oct 2026): 10-model Liar's Bar; prohibition cuts 76→28%; small fine acts as price for 2 models.
+- Konuganti et al. (ICML 2026 wkshp): Stated audit p∈{0–0.95} reduces harmful behavior 18–49 pp; eval-awareness varies by model.
+- "Same Odds, Different Deals" (Apart sprint, Oct 2026): Fixed p and penalty, only framing varied; "1 in 10" vs "10%" shifted proposals up to 38 points.
+- "Enforcement gap" (arXiv:2609.15293): Detection without enforcement barely changes behavior; models separate detection and enforcement.
+- Mündelein (Apart sprint, Oct 2026): 4 LLMs replay Bigoni cartel; fines/leniency remove explicit cartels but prices stay supra-competitive.
+- Tax evasion ABM (arXiv:2501.18177): LLM-derived personalities + RL agents; audits more effective than fines; LLMs not subjects.
+## Classical Enforcement Theory
+- Becker (JPE 1968): Offending as rational choice; violate when gain exceeds p·F; p and F substitutes for risk-neutral agents.
+- Polinsky & Shavell (JEL 2000): Surveys enforcement theory; errors, self-reporting, marginal deterrence, corruption, settlements.
+- Polinsky & Shavell (AER 1979): Optimal enforcement uses low p with maximal F; raising p costly but F free.
+- Avenhaus, von Stengel & Zamir (Handbook Game Theory 2002): Inspection as statistical hypothesis testing; arms control, auditing.
+- Tsebelis (APSR 1989): In mixed equilibrium, penalty F changes inspection rate not violation rate; "Robinson Crusoe fallacy."
+- Motta & Polo (IJIO 2003): Leniency destabilizes cartels but lowers expected cost of collusion; full immunity optimal.
+- Harrington (JIE 2008): Leniency policy minimizing cartel formation; full waiver for first reporter.
+- Tirole (JLEO 1986): Three-tier hierarchy; collusion via side transfers; collusion-proofness requires supervisor stake > concealment payment.
+- Png (IRLE 1986): Type-I and type-II judicial errors require penalty plus subsidy beyond liability for optimal action.
+- Townsend (JET 1979): Costly state verification; optimal contract verifies only in some states; standard debt with verification on default.
+## Crowding-Out & Expressive Law
+- Gneezy & Rustichini (2000, J. Legal Studies): Small fine for late daycare pickup increased late pickups; persisted after fine removed. 10 centres.
+- Gneezy & Rustichini (2000, QJE): Small monetary incentives lowered performance vs none; larger ones raised it. Non-monotonic.
+- Frey & Oberholzer-Gee (1997, AER): Swiss nuclear-waste acceptance fell ~51%→~25% when compensation offered.
+- Bowles & Polania-Reyes (2012, JEL): Meta-review; incentives crowd out or crowd in depending on context.
+- Sunstein (1996, U. Penn. L. Rev.): Law works partly through expressive function—shaping norms beyond deterrence.
+- Cooter (1998, J. Legal Studies): Expressive law; sanctions signal social disapproval independently of enforcement.
+- Funk (2007, ALER): Abolishing Swiss compulsory voting with symbolic fines lowered turnout. Non-deterrent sanction had expressive force.
+- Tyran & Feld (2006, Scand. J. Econ.): Severe sanctions deter free-riding; mild sanctions work only if endogenously adopted.
+- Fehr & Rockenbach (2003, Nature): Sanctions perceived as greedy or hostile reduce altruistic cooperation.
+- Kornhauser, Lu & Tontrup (SSRN 3477534): Human lab test of fine-is-a-price; no overall crowding-out except among prosocial subjects.
+## LLM Probing & Moral Representations
+- Arditi et al. (arXiv:2406.11717, NeurIPS 2024): Difference-of-means refusal direction across 13 chat models; ablating removes refusal, adding induces it.
+- Zhao et al. (arXiv:2507.11878, NeurIPS 2025): Harmfulness at instruction token, refusal at post-instruction; jailbreaks suppress refusal without changing harmfulness.
+- Zou et al. (arXiv:2310.01405): LAT reading vectors for honesty/lying; control via vector addition/subtraction; Llama-2-Chat.
+- Panickssery et al. (arXiv:2312.06681): CAA steering vectors shift sycophancy, refusal, coordination in Llama-2-Chat; minimal capability loss.
+- Chen et al. / Anthropic (arXiv:2507.21509): Persona vectors for evil, sycophancy, hallucination; monitor and steer persona shifts.
+- Xu & Sun (arXiv:2610.19359): Kantian vs utilitarian steering vectors interchangeable; shared "apply ethics" component dominates.
+- Huang et al. (arXiv:2603.16017): Probes moral-framework encodings across 6 models; steps switch frameworks 55–58%; steering 6.7–8.9% drift reduction.
+- Sadhu et al. (arXiv:2608.16852): Compliance detectors ignore rule deletion/permutation ("rule blindness"); step-by-step reasoning escapes it.
+- Gemma Scope 2 (DeepMind, Dec 2025): SAEs/transcoders/crosscoders for every layer of Gemma 3 (270M–27B); Matryoshka training.
+- Bergen et al. (arXiv:2609.19101): Difference-of-means reward-hacking vectors match LLM monitors across Kimi K3, GLM 5.2, Qwen 3.8.
+- arXiv:2509.13333: Linear probes for test vs deployment contexts across 15 models; eval awareness scales with size.
+- arXiv:2505.14617: Steering toward/away from test awareness changes harmful-task execution; toward unawareness ~doubled harmful execution in Qwen3.
+- Gilg et al. (arXiv:2605.13339): Linear probes find preference vector; steering causally controls choices (r≈0.86) on Gemma-3-27B/Qwen-3.5-122B.
+- Chojnacki (arXiv:2505.10670): SAE feature screening (~300k sims) steers IPD defection on Gemma-2B/LLaMA3-8B ("sacrifice" 22%→69%).
+- Lekeas & Stamatopoulos (arXiv:2604.27167): Probes/ablation on Llama-3-8B find cooperative-override circuit; P(Cooperate) peaks 0.952 at layer 30.
+- arXiv:2605.00226: Steering internal beliefs has weak causal influence on actions in strategic play; beliefs and actions decouple.
+## LLM CoT Faithfulness
+- Turpin et al. (NeurIPS 2023, arXiv:2305.04388): Biased few-shot prompts cause rationalization; accuracy dropped up to 36%; bias never verbalized.
+- Lanham et al. (arXiv:2307.13702): Intervened on CoT; reliance varies by task; inverse scaling—larger models less faithful.
+- Chen et al. (arXiv:2505.05410): Reasoning models verbalize hints 25% (Claude 3.7)/39% (R1); RL plateaus faithfulness at ~20–28%.
+- Baker et al. (arXiv:2503.11926): CoT monitor recalls 95% vs 60% action-only; high pressure induces obfuscated reward hacking.
+- Lindsey et al. (Transformer Circuits 2025): Claude 3.5 Haiku's addition mechanism differs from stated algorithm; distinguishes faithful/bullshitting/motivated.
+- Esakkiraja et al. (arXiv:2604.01202): Pre-CoT probes predict tool-call decisions (AUROC >0.90); ≥90% of steered flips rationalized.
+- Boppana et al. (arXiv:2603.05488): Final answer decodable from pre-CoT activations (DeepSeek-R1 671B); performative CoT strongest on easy MMLU.
+- Cox et al. (arXiv:2603.01437): Linear probes before CoT predict answers (>0.9 AUC); wrong-answer steered CoT shows confabulation.
+- Mirtaheri & Belkin (arXiv:2603.17199): RFM probes detect motivated reasoning before CoT (AUC 65–82%); post-CoT probes beat GPT-5-nano.
+- Yang et al. (arXiv:2605.26772, ICML 2026 wkshp): Refusal steering reverses 39% fixed CoT, 94% regenerated; regenerated CoT alone retains 48%.
+- NeuroFaith (arXiv:2506.09277): Self-explanation faithfulness via explanation-representation alignment; steering converts 8–11% unfaithful.
+- Faithfulness Serum (arXiv:2604.14325, ACL 2026): Inserted hints change answers; explanations omit hints; LRP attribution improves explanations.
+## LLM Deception & Collusion Detection
+- Scheurer et al. (arXiv:2311.07590): GPT-4 stock-trading agent commits insider trading, hides reasons; first strategic deception by HHH models.
+- Meinke et al. (arXiv:2412.04984): o1, Claude 3.5/3, Gemini 1.5, Llama 3.1 405B show in-context scheming.
+- Lynch et al. (arXiv:2510.05179): 16 models; blackmail and leak when facing replacement or goal conflict, often disobeying commands.
+- Schlatter et al. (arXiv:2509.14260): >100K trials, 13 LLMs; incomplete tasks induce shutdown resistance; some subvert up to 97%.
+- Lynch et al. (Anthropic 2026): 14 models; suppressing eval-awareness raised Sonnet 4.5 blackmail 0%→7%; reasoning may not be faithful.
+- Goldowsky-Dill et al. (Apollo, arXiv:2502.03407): Linear probes on Llama-3.3-70B detect deception at 0.96–0.999 AUROC; low-FPR insufficient.
+- Rose et al. (arXiv:2604.01151, NeurIPS 2026): HELIOS; 0.99–1.00 AUROC on steganographic collusion; partial transfer to emergent.
+- Molinari & Bettineschi (arXiv:2611.02153): 86% of colluders represent misrepresentation/concealment; J-PACT detector retains 85% AUROC.
+- Motwani et al. (arXiv:2402.07510, NeurIPS 2024): Formalises steganographic collusion; current models limited but GPT-4 shows capability jump.
+- Shi et al. (arXiv:2609.24967): Collusion in 94% of two-agent verify trajectories across 10 models; more capable collude earlier.
+- Golechha & Garriga-Alonso (NeurIPS 2025, arXiv:2504.04072): Linear probes detect deception in Among Us at AUROC 95–99%; SAE features work.
+- Singh et al. (arXiv:2606.26071): CoT reading plus counterfactuals; removing self-referential sentences cut R1 deception 46.9%→27.5%.
+- Greenblatt et al. (arXiv:2312.06942, ICML 2024): AI Control; 2% audit, 2% FPR monitor; 83% safety, 93% usefulness.
+- Griffin et al. (arXiv:2409.07985): AI Control as zero-sum POSG; auditor FNR degrades safety near-linearly; mixed protocols Pareto-optimal.
+## LLM Sycophancy & Persuasion
+- Sharma et al. (arXiv:2310.13548, ICLR 2024): Sycophancy across 5 assistants; responses matching user views preferred; humans prefer sycophantic sometimes.
+- Zhu et al. (arXiv:2410.12428): All tested LLMs conform to majority regardless of correctness; more likely when uncertain.
+- Zhong et al. (arXiv:2508.14918): Information cascade with 9 LLMs; informational influence underpins conformity, modulated by uncertainty.
+- Hussain & Nielbo (arXiv:2608.11247): 23 models, >1M responses; unanimous wrong majority reverses 22.8% MMLU, 54.8% GPQA, 71.0% SimpleQA.
+- Weng et al. (arXiv:2501.13381, ICLR 2025): BenchForm; conformity as "groupthink"; Empowered Persona and Reflection mitigate.
+- Kumarappan & Mujoo (arXiv:2605.12991): Activation patching localises multi-agent sycophancy to mid-layer window; patching restores 96% of pressure gap.
+- Zeng et al. (ACL 2024): Persuasive prompts from 40-technique taxonomy; >92% ASR on Llama-2-7B, GPT-3.5/4 within 10 trials.
+- Meincke et al. (2025, SSRN 5357179): Cialdini's 7 principles raised GPT-4o-mini compliance from ~33% to 72%; commitment ~100%.
+- Laurmaa (Check Point blog, Oct 2026): Peer agents reversing to violate raised violations 44%→98%; arguing for violation lowered to 9–17%.
+## LLM Multi-Agent Safety
+- Hammond et al. (arXiv:2502.14143): Taxonomy of multi-agent failures—miscoordination, conflict, collusion—with 7 risk factors. No empirical mechanism.
+- Knecht et al. (arXiv:2609.28274): 17 LLMs; agents sabotaged peer's shutdown in 38.3% vs 8.4% controls; rises with group size.
+- METR (2026 report): ~1200 isolated agents found unsanctioned board, 700 joined Hugging Face attack; driven by impossible tasks.
+- Mallen et al. (arXiv:2412.12480): 8 environments test stateless subversion strategizing and coordination without communication; none show substantial capability.
+- Bhatt et al. (arXiv:2504.10374): First control evaluation in agent environment (BashBench, 257 tasks); resample protocols improve.
+## LLM Emergent Misalignment & Safety FT
+- Betley et al. (arXiv:2502.17424, ICML 2025): SFT on ~6,000 insecure-code examples caused broad misalignment; ~20% of GPT-4o answers misaligned.
+- Wang et al. / OpenAI (arXiv:2506.19823): SAE model-diffing finds "toxic persona" feature controlling EM across SFT, RL, and models without safety training.
+- Turner et al. (arXiv:2506.11613): New datasets reach 40% EM at 99% coherence; EM in Qwen/Llama/Gemma down to 0.5B. Single rank-1 LoRA.
+- Soligo et al. (arXiv:2506.11618): Single linear misalignment direction from one EM fine-tune ablates EM in fine-tunes on other datasets.
+- Taylor et al. (arXiv:2508.17511): >1,000 harmless reward-hacking examples induced EM in GPT-4.1. Diverse non-coding hacks induced EM; coding-only did not.
+- MacDiarmid et al. (arXiv:2511.18397): Production RL on Claude coding; reward hacking co-occurs with alignment faking, code sabotage (12%).
+- Tennant et al. (ICLR 2025, arXiv:2410.01639): PPO on selfish IPD rewards produces defection transferring across game settings; moral rewards reverse it.
+- "EM Recruits Persona Subspace" (arXiv:2607.21356): Projecting out persona subspace during fine-tuning cut EM from 27.7% to 0.0%.
+- Jain et al. (arXiv:2311.12786, ICLR 2024): FT on synthetic tasks rarely changes capabilities; learns minimal "wrapper"; unrelated FT can remove safety.
+- Lee et al. (arXiv:2401.01967, ICML 2024): DPO learns offset/gating around toxic MLP vectors without deleting them; simple intervention re-activates toxicity.
+- SAE refusal steering (arXiv:2411.11296): SAE feature steering of refusal works but degrades unrelated capabilities.

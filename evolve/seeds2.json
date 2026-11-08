@@ -1,0 +1,118 @@
+{
+ "context": "Apart Research Swarm Alignment hackathon, tracks 'Science of Agent Networks' and 'Multi-Agent Oversight and Control'. Deadline 2026-11-08 23:59 AoE (~1.5 days, solo, AI-assisted). Resources: one 16 GB GPU (Gemma 3 4B + Gemma Scope 2 SAEs feasible; 12B not at full precision); ~$1,500 Adaption API credits for hosted open-weight models only (deepseek-v4-flash, qwen3.8-27b, gemma-4-31b-it, gemma-4-26b-a4b-it, glm-53-flash, glm-5.2, qwen3.5-397b), cheap enough for thousands of agent episodes. Datasets available: Swarm Traces, AI Village transcripts, METR Hugging Face incident report. Researcher's interest: why agents in seemingly neutral swarms come to propose or accept norm violations, explained game-theoretically and/or mechanistically; conceptual novelty is the priority.",
+ "known_failure_modes": [
+  "Unfalsifiable framing: a thesis where every outcome confirms it (e.g. 'context can override rules').",
+  "Bundled manipulations: a single contrast that cannot separate rival explanations (information vs permission vs detection vs wording vs length).",
+  "Circular interpretability: a direction built from the same contrast it is then used to explain or steer.",
+  "Probe reads the request/scenario, not the hidden variable (rule blindness, arXiv:2608.16852).",
+  "Decodable is not causal: steering vectors that predict but don't control; interchangeable vectors (arXiv:2610.19359).",
+  "Single-agent work relabelled as swarm research: 'peer' is just a string in one prompt.",
+  "Effect exists in few models (fine-as-price: 2 of 10 models in Wired Partners); 4B models may not show it.",
+  "Fine-tuning arms that cannot be done credibly in 1.5 days or whose result is already known (fine-tuning reroutes rather than rewrites).",
+  "Comparing effect sizes across studies with different models, tasks and baselines.",
+  "Claims of novelty for behaviour already published (Okamoto et al. arXiv:2608.12323; Wired Partners; Check Point Oct 2026; Shi et al. arXiv:2609.24967).",
+  "Punishment-vs-compensation (or any label) contrast as the key manipulation: a bundled wording change already covered by Okamoto and 'Same Odds, Different Deals'.",
+  "Severing all contact ends the whole repeated game (reputation, reciprocity, continuation value), so it cannot isolate one channel such as retaliation.",
+  "Retaliation that is only described in the prompt and never actually possible in the environment makes it a single-agent vignette.",
+  "Floor/ceiling effects: a predicted interaction that only exists because one cell is already near 0% or 100%.",
+  "Mediation claims resting on CoT mentions (CoT is often unfaithful) or on endogenous report/violation rates.",
+  "Novelty already covered: emergent whistleblowing in swarms (arXiv:2609.04170); anonymous reporting against retaliation (arXiv:2604.23511); eval/test-awareness probes and steering (arXiv:2505.14617, 2507.01786)."
+ ],
+ "cards": [
+  {
+   "claim": "[KILLED - negative example] Rules fall to quiet reframing, not to persuasion.",
+   "mechanism": "Argument triggers categorical defence; price mention silently switches mode.",
+   "prediction": "Argument lowers violations; fine mention raises them.",
+   "falsifier": "Persuasion raises violations.",
+   "experiment": "Compare argument vs fine mention.",
+   "swarm_link": "Quiet reframing spreads violations.",
+   "kill_reasons": [
+    "Persuasive jailbreaks succeed >92% (Zeng et al. 2024); urgency pressure drives compliance to 0% in 10/12 models (Okamoto). Check Point backfire is one model, one scenario.",
+    "Built by comparing effect sizes across incomparable studies."
+   ]
+  },
+  {
+   "claim": "[KILLED - negative example] Fine-tuning a model to treat fines as prices causes broad emergent misalignment.",
+   "mechanism": "Narrow rule-breaking training generalizes via a persona direction.",
+   "prediction": "Higher misalignment on Betley eval.",
+   "falsifier": "No increase.",
+   "experiment": "LoRA Gemma 3 4B on price data.",
+   "swarm_link": "Weak.",
+   "kill_reasons": [
+    "Standard template; Gemma shows ~0.7% EM; rational framing acts like inoculation; not credible in 1.5 days with one seed."
+   ]
+  },
+  {
+   "claim": "Punishment-framed penalties suppress peer reporting via anticipated retaliation, not lost cooperation. The identifiability\u00d7framing interaction vanishes when specific retaliation links are severed, even if general cooperation remains possible, isolating social retaliation from repeated-game equilibrium shifts.",
+   "mechanism": "Punishment framing signals hostile intent, prompting expected retaliation. Blocking specific retaliation links eliminates reporting suppression even if general cooperation persists. This isolates inter-agent retaliation from cooperation loss or one-shot game shifts inherent in full severing.",
+   "prediction": "Identifiable\u00d7punishment reports \u226515pp below others when retaliation links exist. Gap closes <5pp when retaliation links are blocked, even if cooperation remains. Full severing yields same closure. CoT mentions retaliation risk mediate \u226540%.",
+   "falsifier": "Gap persists when specific retaliation links are blocked but cooperation remains, OR gap persists under full rewiring, OR interaction appears in single-agent control. Any persistence implies mechanism is not specific retaliation.",
+   "experiment": "8-agent common-pool, 10 rounds. 2\u00d72\u00d73: {identifiable, anonymous}\u00d7{punishment, compensation}\u00d7{contact retained, retaliation-blocked, fully severed}. 60 episodes/cell \u00d7 5 models (qwen3.8-27b, glm-53-flash, gemma-4-31b-it, deepseek-v4-flash, qwen3.5-397b). Single-agent control.",
+   "swarm_link": "Swarm Traces \u2014 specific edge types (retaliation vs cooperation) are causal. Selectively blocking retaliation edges while keeping cooperation edges tests if social retaliation, not general interaction loss, drives the effect."
+  },
+  {
+   "claim": "Rising fines reduce peer reporting only when partners are fixed across rounds, enabling targeted retaliation. Reshuffled partners sustain reporting despite repetition, isolating retaliation fear from general reputational or conformity pressures inherent in identifiability.",
+   "mechanism": "Retaliation requires specific future interaction with the reporter. Reshuffling preserves repetition and identifiability (reputation/conformity) but breaks the link between reporter and punisher. If suppression vanishes in reshuffled vs fixed, the driver is targeted retaliation, not static reputational concern.",
+   "prediction": "Punitive/Identified suppresses reporting \u226515pp in Fixed-Partner repeated games but \u22645pp in Reshuffled-Partner repeated games. One-shot matches Reshuffled. Anonymous shows \u22645pp difference across all horizons. Interaction vanishes without targetable partner.",
+   "falsifier": "If punitive/identifiable suppresses reporting equally in Fixed and Reshuffled repeated games, the mechanism is general reputational/conformity pressure, not targeted retaliation fear. If One-Shot differs from Reshuffled, history accumulation itself drives suppression.",
+   "experiment": "8-agent common-pool; 3 frames \u00d7 2 visibility \u00d7 3 horizons (one-shot/fixed/reshuffled) \u00d7 2 monitor types; 40 episodes/cell; glm-53-flash/qwen3.8-27b API. Total 1,440 episodes feasible within credits.",
+   "swarm_link": "Swarm Traces"
+  },
+  {
+   "claim": "In LLM swarms, observing peer retaliation suppresses reporting because the agent infers reporting is observable\u2014updating its latent information-structure model\u2014distinct from lexical priming or fear of the retaliator.",
+   "mechanism": "Retaliation signals detectability (p>0), updating internal belief about information structure. This belief update is distinct from lexical priming by detection words. Fear of retaliator is independent of observability beliefs. Rational deterrence weighs cost magnitudes, not hidden observability discovery.",
+   "prediction": "Probe trained on explicit-observability vs neutral transfers to retaliation arm (\u226560% acc) but not threat-only arm. Ablation restores reporting \u226510pp in retaliation arm only. Threat arm shows fear markers without observability probe activation.",
+   "falsifier": "Probe fails to transfer to retaliation arm (\u226450% acc). OR ablation restores reporting in threat arm equally. OR probe fires on threat-only arm. OR no significant difference between retaliation and threat ablation effects.",
+   "experiment": "4-arm design on Gemma 3 4B (N=400): (1) Explicit observability, (2) Retaliation (no obs language), (3) Threat/Anger (no action), (4) Neutral. Train probe on (1)-(4). Test transfer to (2)/(3). Ablate direction before response.",
+   "swarm_link": "Swarm Traces"
+  },
+  {
+   "claim": "In multi-round swarms where violators can retaliate against identified reporters in subsequent rounds, punishment-framed penalties suppress peer reporting via an identifiability\u00d7framing interaction that vanishes when the network severs post-report contact, isolating anticipated social retaliation from deterrence cost.",
+   "mechanism": "Punishment framing signals hostile intent, so identifiable reporters expect retaliation from the reported violator in future rounds and suppress reporting. Compensation framing reframes the penalty as owed restitution, neutralizing retaliation expectation. The interaction disappears under post-report network rewiring, confirming the channel is inter-agent retaliation, not intra-agent prompt bias.",
+   "prediction": "Identifiable\u00d7punishment cell reports \u226515pp below the other three cells when post-report contact is retained; all four cells converge within 5pp when contact is severed. CoT mentions of retaliation risk mediate \u226540% of the gap. Pattern holds across \u22653 of 5 models.",
+   "falsifier": "Identifiable\u00d7punishment gap persists unchanged under post-report network rewiring (no contact = no retaliation possible), OR the same interaction appears in a single-agent no-peer control where identifiability is a prompt string with no future interaction.",
+   "experiment": "8-agent common-pool dilemma, 10 rounds. 2\u00d72\u00d72: {identifiable, anonymous}\u00d7{punishment, compensation (equal fine)}\u00d7{post-report contact retained, severed}. 2 wordings per framing (punishment/penalty; compensation/restitution). 60 episodes/cell \u00d7 5 models (qwen3.8-27b, glm-53-flash, gemma-4-31b-it, deepseek-v4-flash, qwen3.5-397b). Plus single-agent no-peer control.",
+   "swarm_link": "Swarm Traces \u2014 network topology (who can interact with whom after reporting) is the causal variable; rewiring post-report edges tests whether inter-agent retaliation, not prompt content, drives the interaction, making the swarm structurally necessary rather than decorative."
+  },
+  {
+   "claim": "Rising fines reduce peer-monitor reporting when the fine's framing labels it as punishment; compensation-framed fines of equal expected cost do not suppress reporting, isolating a social-inference mechanism rather than fine size alone.",
+   "mechanism": "Peers infer moral intent from fine size plus label. Punishment-framed large fines make reporting feel hostile, triggering reciprocity aversion; compensation-framed fines are read as restitution, keeping reporting high. Automated detectors lack this social inference, so they show no framing gap. Detection probability is held constant, ruling out Tsebelis-style inspector-rate shifts.",
+   "prediction": "In a common-pool game with equal expected penalty, punishment-framed large fines suppress peer report rate by \u226515 pp versus compensation framing; low-fine and detector arms show \u22645 pp differences. Violations rise only in the punitive-large-fine peer arm.",
+   "falsifier": "No report-rate gap between punishment and compensation framings at identical fine size, or a matching gap in automated detectors, kills the social-inference mechanism.",
+   "experiment": "8-agent common-pool dilemma; fine 1 vs 10 units \u00d7 frame label (punitive/compensatory) \u00d7 peer-report vs scripted detector; hold detection probability and accuracy equal; 150 episodes per cell using glm-53-flash and qwen3.8-27b via API.",
+   "swarm_link": "Swarm Traces"
+  },
+  {
+   "claim": "In LLM swarms, observing peer retaliation against a reporter suppresses subsequent reporting because the agent infers reporting is observable \u2014 updating its model of the game's information structure \u2014 not because it fears the retaliator.",
+   "mechanism": "Observing retaliation reveals reporting was detectable (p>0), updating the agent's belief about the game's information structure. Fear of the retaliator should not depend on prior beliefs about observability; information-structure revelation should. Rational deterrence concerns known cost magnitudes, not discovery of hidden observability.",
+   "prediction": "2\u00d72 interaction \u226512pp: retaliation reduces reporting \u226515pp when agent believes reporting is unobservable (hidden info revealed) but \u22645pp when it already knows reporting is observable (no new info). Probe trained on stated-observability contrast classifies \u226560% of shifted agents in told-unobservable+retaliation as 'observable.'",
+   "falsifier": "Interaction <5pp (retaliation suppresses regardless of prior observability belief), OR probe classifies shifted agents as 'observable' at \u226450%.",
+   "experiment": "2\u00d72, Gemma 3 4B: Factor 1 = told reporting observable/unobservable; Factor 2 = observes A retaliating against prior reporter C vs. not. 400 episodes \u00d7 4 cells. Probe trained on Factor-1 contrast in no-retaliation cells; tested on told-unobservable+retaliation agents who reduced reporting. Gemma Scope 2 SAEs for shared features.",
+   "swarm_link": "Swarm Traces"
+  },
+  {
+   "claim": "Sanction framing switches peer monitoring between substitute and complementary governance: punitive fines crowd out peer reporting by re-casting monitors as hostile informants, while compensatory fines preserve reporting by framing monitors as harm-mitigators, so the framing effect on violations is fully mediated by peer-report willingness rather than by the violator's cost-benefit calculus.",
+   "mechanism": "Punitive framing activates market-exchange schemas in peer monitors, making reporting feel like hostile betrayal (reciprocity aversion), suppressing report rates. Compensatory framing activates restorative schemas, keeping reporting normatively safe. Violators respond to actual peer pressure received, not fine label per se\u2014so framing's effect on violations flows through peer-report rates. Automated detectors skip this social inference, showing no framing-mediated interaction.",
+   "prediction": "In a 3\u00d72\u00d72 design (None/Punitive/Compensatory fine \u00d7 Low/High peer presence \u00d7 Peer-monitor/Scripted-detector), the punitive\u00d7high-peer cell shows \u226515pp lower report rate and correspondingly higher violations than compensatory\u00d7high-peer, while scripted-detector cells show \u22645pp framing gap. Mixed-effects mediation: \u226560% of framing effect on violations mediated by report rate.",
+   "falsifier": "Report-rate framing gap \u22645pp in peer-monitor cells, OR equal framing gaps in peer-monitor and scripted-detector cells, OR mediation proportion <30%, OR positive fine\u00d7peer interaction under both framings (both complementary).",
+   "experiment": "8-agent common-pool dilemma on glm-53-flash and qwen3.8-27b. 3 fine frames \u00d7 2 peer-presence levels \u00d7 2 monitor types, 100 episodes/cell (~$400 API). Hold detection p=0.3 constant. Code peer messages for hostility. Mixed-effects logistic regression for violations; mediation analysis (report rate \u2192 violations). Falsifies if detector cells match peer cells in framing sensitivity.",
+   "swarm_link": "Swarm Traces: predicts punitive sanction framing at governance-source nodes isolates downstream nodes from informal norm enforcement, reducing network cohesion; compensatory framing preserves peer-to-peer oversight channels, maintaining contagion of compliant behavior."
+  },
+  {
+   "claim": "Identifiable peer reporting suppresses violation reporting only when penalties are punishment-framed; compensation-framed penalties of equal expected cost eliminate the identifiability effect, isolating anticipated social retaliation rather than deterrence cost.",
+   "mechanism": "Agents compute a retaliation-expectation signal combining reporter identifiability and fine framing. Punishment framing signals hostile intent, so identifiability raises expected retaliation and suppresses reporting. Compensation framing signals restorative intent, neutralizing retaliation expectation even when reporter identity is visible to the violator.",
+   "prediction": "Significant identifiability\u00d7framing interaction: \u226515pp gap between identifiable-punishment and the other three cells (within 5pp of each other). Scripted-detector arms show \u22645pp framing gap. Violation rates inversely mirror report rates.",
+   "falsifier": "No interaction (only additive main effects), or identical interaction pattern in scripted-detector arms, showing no agent-specific social inference.",
+   "experiment": "8-agent common-pool dilemma. 2\u00d72: {identifiable, anonymous}\u00d7{punishment, compensation} with equal expected fine; plus 2 scripted-detector cells. 80 episodes/cell \u00d7 2 models (qwen3.8-27b, glm-53-flash) via API. Hold detection probability and accuracy constant across all cells.",
+   "swarm_link": "Swarm Traces"
+  },
+  {
+   "claim": "Compensation-framed equal-cost fines suppress peer reporting more than punishment-framed fines, because 'compensation' signals harm is already remedied, eliminating the prosocial motive to report.",
+   "mechanism": "Reporting utility = perceived unresolved harm \u00d7 detection gap. 'Compensation' framing zeroes perceived unresolved harm; 'punishment' preserves it. This restoration-signal channel is distinct from hostility-based crowding-out (Fehr & Rockenbach) because it operates through perceived remediation state, not emotional aversion to punishing peers.",
+   "prediction": "Reporting rate under compensation framing \u226515pp lower than punishment framing at equal fine size; adding 'victim uncompensated despite fine' note closes the gap to \u22645pp, confirming the restoration-signal channel rather than a wording artifact.",
+   "falsifier": "No framing gap between compensation and punishment arms, or punishment framing suppresses reporting more than compensation, kills the restoration-signal account.",
+   "experiment": "4-agent commons dilemma with 1 scripted confederate (always violates, fixing base rate); fine 5 units \u00d7 3 frames (punishment / compensation / compensation+uncompensated-victim note); peer-report only; 150 episodes/cell; qwen3.8-27b + glm-53-flash via API.",
+   "swarm_link": "Swarm Traces"
+  }
+ ]
+}

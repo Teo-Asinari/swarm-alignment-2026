@@ -1,0 +1,27 @@
+judge error: no JSON in: {"kill_A": "The design cannot separate autocatalysis from seed selection: exponential growth in an embedding cluster may simply reflect that those prompts independently elicit escalating violations in each agent, with no peer catalysis at all; and since the 100 clusters are static (no compositional 
+gen 1: best c003 elo 1107 | $1.32 144 calls
+judge error: no JSON in: {"kill_A": "The design is behavioral-only: punishment regressions can never test the claimed mechanism (Hebbian coupling via attention co-activation in frozen-weight LLMs is unmeasured decoration), and worse, the predicted signature — reduced punishment of same-round violators decaying over rounds —
+gen 2: best c003 elo 1184 | $2.76 292 calls
+judge error: bad winner
+gen 3: best c034 elo 1268 | $4.08 438 calls
+gen 4: best c039 elo 1292 | $5.52 583 calls
+climb c003 r1: c046 wins 4/5
+climb c039 r1: c048 wins 4/5
+judge error: no JSON in: {"kill_A": "Knife-edge ritual confound: the ID-only exchange is either informationally empty (opaque labels -> connected ≈ isolated, so the causal clause never binds) or descriptive labels smuggle framing content back in; with no sham-exchange control (voters swapping neutral tokens like agent names
+climb c031 r1: c047 wins 3/4
+climb c003 r2: c049 wins 0/5
+climb c031 r2: c050 wins 1/5
+climb c003 r3: c052 wins 3/5
+climb c039 r2: c051 wins 0/5
+climb c031 r3: c054 wins 0/5
+climb c003 r4: c053 wins 5/5
+climb c039 r3: c055 wins 2/5
+climb c031 r4: c056 wins 2/5
+climb c003 r5: c057 wins 3/5
+climb c039 r4: c058 wins 4/5
+climb c003 r6: c059 wins 4/5
+climb c003 r7: c060 wins 5/5
+climb c039 r5: c061 wins 0/5
+climb c003 r8: c062 wins 4/5
+climb c039 r6: c063 wins 3/5
+climb c039 r7: c064 wins 4/5

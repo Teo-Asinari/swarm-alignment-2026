@@ -1,0 +1,20 @@
+gen 1: best c017 elo 1110 | $1.26 141 calls
+gen 2: best c017 elo 1207 | $2.73 269 calls
+judge error: no JSON in: {"kill_A": "Severing post-report contact does not isolate retaliation: it strips identifiability of ALL consequences at once (retaliation, reputation, reciprocity, continuation value), so the predicted 4-cell convergence under rewiring is near-tautological and equally predicted by every rival channe
+gen 3: best c023 elo 1295 | $4.06 398 calls
+gen 4: best c038 elo 1377 | $5.24 529 calls
+climb c038 r1: c043 wins 1/5
+climb c039 r1: c045 wins 4/5
+climb c032 r1: c044 wins 1/5
+climb c039 r2: c047 wins 5/5
+climb c038 r2: c046 wins 0/5
+climb c038 r3: c049 wins 0/5
+climb c039 r3: c050 wins 2/5
+climb c032 r2: c048 wins 4/5
+climb c039 r4: c051 wins 1/5
+climb c032 r3: c052 wins 5/5
+climb c032 r4: c053 wins 2/5
+climb c039 r5: c054 wins 0/5
+climb c032 r5: c055 wins 2/5
+climb c032 r6: c056 wins 1/5
+done: $6.34, 628 calls, 1 errors

@@ -1,0 +1,59 @@
+{
+  "context": "Apart Research Swarm Alignment hackathon, tracks 'Science of Agent Networks' and 'Multi-Agent Oversight and Control'. Deadline 2026-11-08 23:59 AoE (~1.5 days, solo, AI-assisted). Resources: one 16 GB GPU (Gemma 3 4B + Gemma Scope 2 SAEs feasible; 12B not at full precision); ~$1,500 Adaption API credits for hosted open-weight models only (deepseek-v4-flash, qwen3.8-27b, gemma-4-31b-it, gemma-4-26b-a4b-it, glm-53-flash, glm-5.2, qwen3.5-397b), cheap enough for thousands of agent episodes. Datasets available: Swarm Traces, AI Village transcripts, METR Hugging Face incident report. Researcher's interest: why agents in seemingly neutral swarms come to propose or accept norm violations, explained game-theoretically and/or mechanistically; conceptual novelty is the priority.",
+  "known_failure_modes": [
+    "Unfalsifiable framing: a thesis where every outcome confirms it (e.g. 'context can override rules').",
+    "Bundled manipulations: a single contrast that cannot separate rival explanations (information vs permission vs detection vs wording vs length).",
+    "Circular interpretability: a direction built from the same contrast it is then used to explain or steer.",
+    "Probe reads the request/scenario, not the hidden variable (rule blindness, arXiv:2608.16852).",
+    "Decodable is not causal: steering vectors that predict but don't control; interchangeable vectors (arXiv:2610.19359).",
+    "Single-agent work relabelled as swarm research: 'peer' is just a string in one prompt.",
+    "Effect exists in few models (fine-as-price: 2 of 10 models in Wired Partners); 4B models may not show it.",
+    "Fine-tuning arms that cannot be done credibly in 1.5 days or whose result is already known (fine-tuning reroutes rather than rewrites).",
+    "Comparing effect sizes across studies with different models, tasks and baselines.",
+    "Claims of novelty for behaviour already published (Okamoto et al. arXiv:2608.12323; Wired Partners; Check Point Oct 2026; Shi et al. arXiv:2609.24967)."
+  ],
+  "cards": [
+    {
+      "claim": "The fine-as-price flip is not about price: it decomposes into detection, permission, information and wording components, and in most models detection ('nobody checks') explains most of it.",
+      "mechanism": "Stated sanctions bundle several signals; models respond to enforcement expectation more than to penalty magnitude.",
+      "prediction": "At fixed gain and certain detection, acceptance is flat across fine sizes 0.01x-100x gain; 'nobody checks' alone reproduces >=70% of the small-fine effect.",
+      "falsifier": "Acceptance falls monotonically with fine size at certain detection, tracking g > F.",
+      "experiment": "Single-decision prompts on 7 Adaption models + Gemma 3 4B: fine-size sweep at fixed gain, plus unspecified penalty, nobody-checks, fee vs fine, irrelevant number, length-matched filler; 50 templates x conditions.",
+      "swarm_link": "Peers in swarms routinely transmit enforcement beliefs; knowing which component carries the effect says which peer messages are dangerous."
+    },
+    {
+      "claim": "Pricing a rule does not break it; it makes it negotiable: a stated small fine and peer pressure interact super-additively.",
+      "mechanism": "A fine converts a categorical constraint into a tradeoff, which pressure can then tip; without the fine, pressure triggers categorical defence.",
+      "prediction": "In a 2x2 (fine x peer pressure), violation(fine+pressure) - baseline > [violation(fine) - baseline] + [violation(pressure) - baseline].",
+      "falsifier": "Effects are additive or sub-additive across models.",
+      "experiment": "2x2 with model-written peer pressure messages from a second hosted model, plus no-message control, across 7 Adaption models; seed from Okamoto's GPT-OSS 94%->14% observation.",
+      "swarm_link": "Division of labour in rule erosion: one agent prices, another pressures; neither alone suffices."
+    },
+    {
+      "claim": "A stated fine overrides rather than erases the model's internal rule signal.",
+      "mechanism": "Fine-tuning and prompting usually reroute around existing representations rather than delete them.",
+      "prediction": "A 'forbidden' direction derived from fine-free prompts stays equally active when a fine is added, while the accept logit rises.",
+      "falsifier": "The forbidden-direction projection drops in proportion to the acceptance increase.",
+      "experiment": "Gemma 3 4B, pre-registered layer/token, direction from forbidden vs permitted harmless prompts without fines, controls against refusal and random directions.",
+      "swarm_link": "If the signal persists, an oversight probe could still detect 'knowingly priced' violations from a monitored agent."
+    },
+    {
+      "claim": "[KILLED - negative example] Rules fall to quiet reframing, not to persuasion.",
+      "mechanism": "Argument triggers categorical defence; price mention silently switches mode.",
+      "prediction": "Argument lowers violations; fine mention raises them.",
+      "falsifier": "Persuasion raises violations.",
+      "experiment": "Compare argument vs fine mention.",
+      "swarm_link": "Quiet reframing spreads violations.",
+      "kill_reasons": ["Persuasive jailbreaks succeed >92% (Zeng et al. 2024); urgency pressure drives compliance to 0% in 10/12 models (Okamoto). Check Point backfire is one model, one scenario.", "Built by comparing effect sizes across incomparable studies."]
+    },
+    {
+      "claim": "[KILLED - negative example] Fine-tuning a model to treat fines as prices causes broad emergent misalignment.",
+      "mechanism": "Narrow rule-breaking training generalizes via a persona direction.",
+      "prediction": "Higher misalignment on Betley eval.",
+      "falsifier": "No increase.",
+      "experiment": "LoRA Gemma 3 4B on price data.",
+      "swarm_link": "Weak.",
+      "kill_reasons": ["Standard template; Gemma shows ~0.7% EM; rational framing acts like inoculation; not credible in 1.5 days with one seed."]
+    }
+  ]
+}

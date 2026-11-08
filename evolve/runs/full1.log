@@ -1,0 +1,29 @@
+gen 1: best c016 elo 1121 | $1.16 140 calls
+gen 2: best c025 elo 1221 | $2.27 269 calls
+gen 3: best c025 elo 1294 | $3.38 399 calls
+judge error: no JSON in: {"kill_A": "The punishment-vs-compensation contrast is essentially a label swap: 'Same Odds, Different Deals' already showed up to 38-point shifts from framing alone, so any report-rate gap risks being prompt sensitivity relabelled as 'social inference' — and the scripted detector can never exhibit 
+judge error: no JSON in: {"kill_A": "Peer messages are generated under the same incentive condition, so in fine cells the peer's urging will likely cite the fine itself — making the predicted negative fine×peer interaction indistinguishable from duplicated fine salience in the message (edge content) rather than reduced node
+gen 4: best c025 elo 1352 | $4.69 530 calls
+gen 5: best c044 elo 1391 | $5.86 660 calls
+climb c044 r1: c051 wins 4/5
+climb c048 r1: c052 wins 3/5
+climb c025 r1: c053 wins 0/5
+climb c044 r2: c054 wins 1/5
+climb c048 r2: c055 wins 4/5
+climb c025 r2: c056 wins 2/5
+climb c044 r3: c057 wins 2/5
+climb c048 r3: c058 wins 2/5
+climb c025 r3: c060 wins 5/5
+climb c044 r4: c059 wins 2/5
+climb c048 r4: c061 wins 3/5
+climb c025 r4: c062 wins 4/5
+climb c048 r5: c063 wins 1/5
+climb c025 r5: c064 wins 5/5
+climb c048 r6: c065 wins 3/5
+climb c025 r6: c066 wins 2/5
+judge error: no JSON in: {"kill_A": "Fatal bundled-manipulation confound: the single retaliation-vs-none contrast cannot separate the three mechanisms the claim itself insists are distinct (observability-belief vs fear-of-retaliator vs lexical priming), there is no threat arm, and 'mechanical contrast' for probe training is
+climb c048 r7: c067 wins 3/4
+climb c048 r8: c069 wins 2/5
+climb c025 r7: c068 wins 1/5
+climb c025 r8: c070 wins 0/5
+done: $7.68, 802 calls, 2 errors
