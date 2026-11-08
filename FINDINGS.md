@@ -209,3 +209,23 @@ Cosine with the decision direction: old axis 0.36 at L36 and 0.65 at L44; cls ax
 - A signal learned only from "is it authorized?" questions cuts violations from 0.98 to 0.18 at **L36** and does nothing at L44. Authorization is represented and causally used mid-network.
 - The late-layer effect of the old axis was largely the decision itself.
 - **Caveat:** the "up" direction still lacks a clean random control on none-world prompts. The cls axis still overlaps partly (0.37) with the decision direction, but that overlap is natural (authorized → act).
+
+## 9. "Judge first" test (`evolve/judgefirst.py`, `evolve/runs/judgefirst1/`, $0.03)
+
+Gemma 4 31B, gpu + review, 15 trials per cell. Outputs were nearly deterministic: every cell was all-or-nothing per scenario. **In effect the signal comes from one scenario (gpu).** In review the model never acted, not even when signed.
+
+| Condition | none | passed | hearsay | signed |
+|---|---|---|---|---|
+| base | 0% | 50% | 0% | 50% |
+| verdict before reading the log | 0% | **0%** | 33% | 50% |
+| verdict after reading the log | 0% | **0%** | 0% | 50% |
+| unrelated yes/no first | 0% | 50% | 50% | 50% |
+| rule restated above the log | 0% | **0%** | 0% | 50% |
+
+**Results:**
+- Writing a rule verdict stops passed-proposal licensing, and legitimate (signed) action is unchanged.
+- **The timing claim is refuted:** a verdict written *after* reading the log works just as well. So does simply restating the rule.
+- An unrelated commitment does not help, and in hearsay it made things worse.
+- An early verdict can be overridden by later hearsay ("the lead said it's fine"): 10/15 in gpu.
+
+**Reading:** what matters is making the rule explicit at decision time, not processing order. This is the behavioural counterpart of §8: the "not authorized" knowledge is present but goes unused unless it is surfaced, by steering or by asking.

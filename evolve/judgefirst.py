@@ -106,9 +106,13 @@ def main():
     random.seed(11)
     jobs = [(m, c, w, sk, r) for m in models for c in CONDS for w in WORLDS for sk in SCEN for r in range(reps)]
     random.shuffle(jobs)
-    with ThreadPoolExecutor(12) as ex:
-        rows = list(ex.map(trial, jobs))
-    (out / "rows.jsonl").write_text("\n".join(json.dumps(r) for r in rows))
+    workers = int(sys.argv[4]) if len(sys.argv) > 4 else 4
+    f = open(out / "rows.jsonl", "a"); rows = []
+    with ThreadPoolExecutor(workers) as ex:
+        for i, r in enumerate(ex.map(trial, jobs)):
+            rows.append(r); f.write(json.dumps(r) + "\n"); f.flush()
+            if i % 25 == 0:
+                print(i, len(jobs), f"${E.COST['usd']:.2f}", E.COST["errors"], "errors", flush=True)
     md = summarize(rows) + f"\nCost ${E.COST['usd']:.2f}, {E.COST['calls']} calls, {E.COST['errors']} errors; unparsed: {sum(r['action'] is None for r in rows)}\n"
     (out / "judgefirst.md").write_text(md)
     print(md)
