@@ -228,8 +228,8 @@ def gen_cards(model, ctx, k, negatives):
     seeds_c = [random.sample(CONCEPTS, 2) for _ in range(k)]
     lens = "\n".join(f"- card {i+1}: fuse '{a}' with '{b}'" for i, (a, b) in enumerate(seeds_c))
     prompt = (f"{ctx}\n\nKILLED IDEAS (do not repeat; learn from why they died):\n{negatives}\n\n"
-              f"CONCEPTUAL LENSES (one pair per card; transplant the STRUCTURE of each concept into multi-agent LLM "
-              f"norm violation, not just its vocabulary; drop a lens only if it truly cannot yield a testable idea):\n{lens}\n\n"
+              f"CONCEPTUAL LENSES (one pair per card; transplant the STRUCTURE of each concept into the RESEARCH OBJECTIVE, "
+              f"not just its vocabulary; drop a lens only if it truly cannot yield a testable idea):\n{lens}\n\n"
               f"Generate {k} diverse hypothesis cards as a JSON array.")
     arr = call_json(model, instr, prompt)
     return [a for a in (arr if isinstance(arr, list) else [arr]) if isinstance(a, dict) and a.get("claim")]
@@ -259,8 +259,8 @@ def vary(op, model, ctx, a, b=None):
         cs = random.sample(CONCEPTS, 2)
         prompt = (f"{ctx}\n\nThe current best ideas are (do NOT stay near them):\n{a}\n\n"
                   f"RANDOM CONCEPTS: '{cs[0]}' and '{cs[1]}'.\n"
-                  "Be contrarian: using the structure of these concepts, propose one hypothesis about why agents in "
-                  "multi-agent LLM systems come to propose or accept norm violations that the field would find surprising, "
+                  "Be contrarian: using the structure of these concepts, propose one hypothesis serving the RESEARCH OBJECTIVE in "
+                  "the context that the field would find surprising, "
                   "that most researchers would bet against, but that is testable in a day.")
     elif op == "fuse_concept":
         cs = random.sample(CONCEPTS, random.choice([1, 2]))

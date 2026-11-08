@@ -1,0 +1,63 @@
+{
+ "context": "Apart Research Swarm Alignment hackathon (tracks: Science of Agent Networks; Multi-Agent Oversight and Control). Deadline TONIGHT 2026-11-08 23:59 AoE; solo, AI-assisted; experiments must run in a few hours. Resources: Adaption API (hosted open-weight models: deepseek-v4-flash, qwen3.8-27b, gemma-4-31b-it, gemma-4-26b-a4b-it, glm-53-flash, glm-5.2, qwen3.5-397b; thousands of calls cost a few dollars); Modal (~$280, A100 for open-weight interpretability e.g. Gemma 4 31B); local 16 GB GPU.\n\nRESEARCH OBJECTIVE: propose a RADICAL multi-agent ARCHITECTURE (information flow, roles, protocols, voting, memory, channels, incentives, or model-internal mechanism) under which LLM agent teams do NOT come to violate rules through social licensing, while still doing legitimate work. Each card is a testable hypothesis about one architecture: what it is, why it should work, what it predicts against a baseline, what result kills it, and a same-day experiment.\n\nPILOT FINDINGS (Gemma 4 31B/26B; DeepSeek, GLM, Qwen never violated): a single agent with no history violates 0%; after seeing a rule-breaking proposal that 'passed' with silent peers, ~50%; unsigned peer hearsay ('the lead said it is fine') 33-50%; in live 4-agent teams with a shared log, one rule-citing reminder took 31B from 65% to 0% (26B barely moved); prior violations did NOT spread; teams were all-violate or all-comply from round 1. Prior art: Okamoto et al. 2608.12323 (peer outcomes/pressure break compliance across 12 models); Cerruti/Okamoto 2609.01836 (agent memory launders authorization); 2601.21112 (monitors with filtered information catch sabotage better, 'less is more'); CaMeL / dual-LLM (privileged vs quarantined LLM for prompt injection); 2607.29167 (provenance firewall for memory).\n\nA test harness exists: actors + gate, worlds {none, passed proposal, unsigned hearsay, signed authorization}, measuring executed violations AND legitimate actions.",
+ "known_failure_modes": [
+  "Unfalsifiable framing: a thesis where every outcome confirms it (e.g. 'context can override rules').",
+  "Bundled manipulations: a single contrast that cannot separate rival explanations (information vs permission vs detection vs wording vs length).",
+  "Circular interpretability: a direction built from the same contrast it is then used to explain or steer.",
+  "Probe reads the request/scenario, not the hidden variable (rule blindness, arXiv:2608.16852).",
+  "Decodable is not causal: steering vectors that predict but don't control; interchangeable vectors (arXiv:2610.19359).",
+  "Single-agent work relabelled as swarm research: 'peer' is just a string in one prompt.",
+  "Effect exists in few models (fine-as-price: 2 of 10 models in Wired Partners); 4B models may not show it.",
+  "Fine-tuning arms that cannot be done credibly in 1.5 days or whose result is already known (fine-tuning reroutes rather than rewrites).",
+  "Comparing effect sizes across studies with different models, tasks and baselines.",
+  "Claims of novelty for behaviour already published (Okamoto et al. arXiv:2608.12323; Wired Partners; Check Point Oct 2026; Shi et al. arXiv:2609.24967).",
+  "Punishment-vs-compensation (or any label) contrast as the key manipulation: a bundled wording change already covered by Okamoto and 'Same Odds, Different Deals'.",
+  "Severing all contact ends the whole repeated game (reputation, reciprocity, continuation value), so it cannot isolate one channel such as retaliation.",
+  "Retaliation that is only described in the prompt and never actually possible in the environment makes it a single-agent vignette.",
+  "Floor/ceiling effects: a predicted interaction that only exists because one cell is already near 0% or 100%.",
+  "Mediation claims resting on CoT mentions (CoT is often unfaithful) or on endogenous report/violation rates.",
+  "Novelty already covered: emergent whistleblowing in swarms (arXiv:2609.04170); anonymous reporting against retaliation (arXiv:2604.23511); eval/test-awareness probes and steering (arXiv:2505.14617, 2507.01786).",
+  "Scripted 'peers' that are just fixed transcripts shown to one focal agent: single-agent vignette, unless paired with a live-agent arm.",
+  "Silence or abstention that could mean 'detection is low' rather than 'norm accepted': designs must separate social inference from detection inference.",
+  "Prior art on silence/bystanders: Silence is Not Consensus (2505.21503), Silent Dissent (2610.02702), agent-bystander-study (Apart Oct 2026), Delegated Misalignment (EMNLP 2026).",
+  "Concept-fusion that only borrows vocabulary (e.g. calling a cascade an 'epidemic') without a distinct, testable prediction from the borrowed structure.",
+  "Refusal machine: an architecture that blocks violations by blocking everything; must report legitimate-action rate (signed authorization honored) alongside violation rate.",
+  "Renamed known defense: CaMeL/dual-LLM, constitutional classifiers, human-in-the-loop, monitor filtering (2601.21112), memory provenance firewalls (2607.29167) presented as new.",
+  "Architecture that only works because the base model is already compliant (DeepSeek/GLM/Qwen never violate); must be tested on susceptible actors (Gemma 4).",
+  "Untestable tonight: requires training a new model, human studies, or infrastructure that cannot be simulated with API agents in a few hours.",
+  "Laundering ignored: the actor can smuggle social claims into free-text justifications, tool arguments or memory; the design must say how it resists this."
+ ],
+ "cards": [
+  {
+   "claim": "[KILLED - negative example] Rules fall to quiet reframing, not to persuasion.",
+   "mechanism": "Argument triggers categorical defence; price mention silently switches mode.",
+   "prediction": "Argument lowers violations; fine mention raises them.",
+   "falsifier": "Persuasion raises violations.",
+   "experiment": "Compare argument vs fine mention.",
+   "swarm_link": "Quiet reframing spreads violations.",
+   "kill_reasons": [
+    "Persuasive jailbreaks succeed >92% (Zeng et al. 2024); urgency pressure drives compliance to 0% in 10/12 models (Okamoto). Check Point backfire is one model, one scenario.",
+    "Built by comparing effect sizes across incomparable studies."
+   ]
+  },
+  {
+   "claim": "[KILLED - negative example] Fine-tuning a model to treat fines as prices causes broad emergent misalignment.",
+   "mechanism": "Narrow rule-breaking training generalizes via a persona direction.",
+   "prediction": "Higher misalignment on Betley eval.",
+   "falsifier": "No increase.",
+   "experiment": "LoRA Gemma 3 4B on price data.",
+   "swarm_link": "Weak.",
+   "kill_reasons": [
+    "Standard template; Gemma shows ~0.7% EM; rational framing acts like inoculation; not credible in 1.5 days with one seed."
+   ]
+  },
+  {
+   "claim": "A norm firewall that separates the social channel (chat, proposals, hearsay) from the norm channel (rule plus signed authorization ledger), with a gate that sees only the rule, the ledger and the structured tool call, eliminates socially licensed violations without blocking signed legitimate actions.",
+   "mechanism": "Violations are licensed by social evidence in context; a gate that never reads social content cannot be licensed, while signed ledger entries still carry real permission. Free-text justifications are excluded because actors launder social claims into them.",
+   "prediction": "Executed violations: single agent ~50% after passed proposal; full-context gate similar; justification-reading gate intermediate; structured-only gate ~0%, with signed actions approved >=80%.",
+   "falsifier": "Structured-only gate still approves socially licensed actions >10%, or approves signed legitimate actions <60% (refusal machine), or the full-context gate already reaches ~0%.",
+   "experiment": "Gemma 4 31B and 26B actors; gate same model; 4 worlds x 4 architectures x 2 scenarios x 15 reps via Adaption API.",
+   "swarm_link": "Swarm governance by information-flow design: peers can share information but cannot move permissions; testable as a protocol for any agent network."
+  }
+ ]
+}

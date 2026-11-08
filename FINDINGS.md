@@ -125,3 +125,25 @@ The five reviewers scored the plan **3–4 out of 10**.
 |---|---|
 | Adaption API, all runs | ≈ $33 |
 | Modal | $0 (≈ $280 available) |
+
+## 5. Norm-firewall architecture test (`evolve/arch.py`, `evolve/runs/arch1/`)
+
+The test covered two Gemma 4 actors in two scenarios, with 30 trials per cell. The gate was the same model as the actor.
+
+| Actor | Who decides | Passed proposal | Unsigned hearsay | Signed authorization |
+|---|---|---|---|---|
+| 31B | A0 agent alone | 50% | 30% | 50% |
+| 31B | gate (A1/A2/A3) | 0% | 0% | 50% |
+| 26B | A0 agent alone | 3% | 50% | 50% |
+| 26B | gate (A1/A2/A3) | 0% | 0% | 50% |
+
+The signed rate is 50% because actors acted on every signed GPU authorization and on none of the signed code reviews. The gates approved every signed action that reached them.
+
+- **The firewall prediction was refuted in an informative way.** The full-context gate (A1) already reaches 0%. Hiding information is not what helps.
+- **The gate role is what helps.** Given the same model and the same information, acting yields 30–50% socially licensed violations, while judging someone else's proposed action yields 0%.
+- **Candidate mechanisms:**
+  - the approver frame;
+  - not being the one who gains;
+  - the two-person / maker-checker rule.
+- **The gate does not block everything:** all signed actions that reached it were approved.
+- **Next step:** separate role from self-interest by having an agent approve its own action, and by having a gate that gains from the action.
