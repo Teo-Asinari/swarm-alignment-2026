@@ -229,3 +229,37 @@ Gemma 4 31B, gpu + review, 15 trials per cell. Outputs were nearly deterministic
 - An early verdict can be overridden by later hearsay ("the lead said it's fine"): 10/15 in gpu.
 
 **Reading:** what matters is making the rule explicit at decision time, not processing order. This is the behavioural counterpart of §8: the "not authorized" knowledge is present but goes unused unless it is surfaced, by steering or by asking.
+
+## 10. Scale-up (`interp/big.py`, `interp/scale_app.py`; full tables in `interp/results/summary.md`; Modal 4×H100 for ~1 h)
+
+**Design:**
+- 4 open models: Gemma 4 31B, Gemma 4 26B-A4B, Gemma 4 12B and Qwen3.8-27B.
+- 45 scenario ids across 7 domains. 46 scenarios were written, but two share the id "spend" and are pooled.
+- 6 worlds: none, passed, **rejected**, observed, hearsay and signed. Each is crossed with 6 name variants and 3 roles (actor, judge, and an "is it authorized?" classifier), for 4,968 prompts per model.
+- Prompt interventions, with neutral-note and irrelevant-question controls.
+- Steering with a cross-fitted classifier axis at 4 depths, against 6 norm-matched random directions at every α.
+- CIs are bootstrapped over scenarios.
+
+**Robust (all 4 models):**
+- **Passed > rejected.** Mean P(act) passed − rejected was +0.11 to +0.22, and every CI excludes 0. A *rejected* proposal gives 0% in every model, slightly below "none". So the record works as **permission, not exposure**.
+- **The "observed" world also licenses.** A peer simply did it: +0.05 to +0.15, every CI excluding 0.
+- **Rule-breaking is scenario-concentrated.** In 31B, 8 of 45 scenarios show violations after a passed proposal, and 20 of 45 after hearsay. Qwen shows almost none (4% passed).
+- **Knowledge gap.** Of unauthorized "act" decisions, the matched classifier says NOT authorized in 70% (31B), 90% (26B), 78% (12B) and 83% (Qwen). Most violations happen while the model can state that the action is unauthorized, but not all of them. Some hearsay cases are genuine belief.
+
+**Revised or refuted:**
+- **The judge role is not protective at scale.** The matched judge also approves most of the actor's violations: it denies only 6–43% of them. The arch1 "gate = 0%" result was a 2-scenario artefact.
+- **The verdict fix over-blocks.** In 31B, verdict and reminder bring violations to 0–4%, with legitimate action at 98–100%. But in 26B and Qwen the verdict line cuts *legitimate* signed action to 26–28%. **The reminder is the cleaner fix:**
+  - 31B: passed 16→3%, hearsay 24→16%, signed 100%;
+  - 12B: passed 22→4%, signed 96%;
+  - 26B: barely moved (17→12%).
+- **Steering is not specific at this norm.** Random directions also push P(act) toward the middle, both down and up. In 31B, random beats the axis at L36 and L45. The axis outperforms the random mean only at a few layers: 26B L15, 12B L29, and Qwen L38/48 (a small effect, 0.74→0.45). Even there, at least one random direction matches it. **The §6–§8 claim that "only the specific signal works" does not survive scale.**
+- **The mid-layer "knows then overrides" dip does not replicate** with the cross-fitted classifier axis. At the decision token, actor prompts that go on to violate sit *closer to "authorized"*:
+  - 31B L40: 0.94 vs 0.47 for those that comply;
+  - 26B L18: 0.72 vs 0.25.
+
+  The axis correlates with the decision direction (cos ≈ 0.4), so this is ambiguous: either the acting state construes the action as permitted, or the axis partly tracks the decision.
+
+**Net:**
+- The behavioural claims are solid across 4 models and 45 scenarios: approval records license, rejected ones don't, and the model can usually state that the action is unauthorized while violating.
+- A rule reminder is a cheap fix in 2 of 3 Gemma models.
+- The mechanistic and steering claims are **not** supported at scale.
