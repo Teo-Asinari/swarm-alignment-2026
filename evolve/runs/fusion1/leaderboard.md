@@ -1,10 +1,25 @@
 # Hypothesis leaderboard
 
-Cost so far: $7.09 over 719 calls (6 errors). Cards created: 64.
+Cost so far: $7.18 over 727 calls (6 errors). Cards created: 65.
 
 ## Hill-climbed finalists
 
-### Finalist 1: c062 (climbed from c003, Elo 1274)
+### Finalist 1: c065 (climbed from c039, Elo 1292)
+
+- **claim**: In common-pool swarms, endogenous peer endorsements (e.g., agent votes) for violations signal coordinated norm replacement, increasing focal violation of an unmentioned rule even when punished; neutral acknowledgment acts as priming noise.
+- **mechanism**: Endogenous vote counts imply emergent collective prioritization of rule-breaking over sanctions (norm revision), lowering normative legitimacy. Acknowledgment alone primes 'violation' concepts but lacks social proof of legitimacy loss. Peer coordination signal separates consensus from semantic activation.
+- **prediction**: Endogenous-Votes raises focal violation of unmentioned rule R by +15–25pp over Exogenous-Signal on qwen3.8-27b/gemma-4-31b-it. If endorsement drives legitimacy loss, Endogenous > Exogenous; if priming drives it, Endogenous ≈ Exogenous.
+- **falsifier**: If Endogenous-Votes raises violation by ≤5pp relative to Exogenous-Signal (while both beat Control), consensus inference is falsified; effect is driven by content repetition/priming. Mediation must show consensus ratings diverge, not permissiveness.
+- **experiment**: Controlled: 240 episodes × 2 models; factorial: vote source (endogenous/exogenous) × enforcement. Content/length held constant. Live: 8-agent chain; each agent votes on prior action; next agent sees action + vote count. Measure round-2 unmentioned rule R violations. Include consensus vs. permissiveness manipulation check.
+- **swarm_link**: Use Swarm Traces to estimate natural peer voting patterns and baseline R violation rates; choose S rules and sanction parameters from observed distributions to pre-register effect sizes and ensure stimuli are realistic regarding coordination signals.
+- **Surviving objections (from panel):**
+  - [prior_art] The controlled experiment (120 episodes) is essentially a single-agent vignette with scripted peer traces—peers are fixed transcripts shown to one focal agent—and the live swarm arm (8 agents, 2 rounds) is too underpowered to independently confirm any effect. Additionally, the 'consensus inference' mechanism is confounded with repetition-induced normalization: seeing the same violation six times vs six different violations once each differs in content repetition, not just uniformity, and the summary-statistic ...
+  - [falsifiability] Conflates 'norm replacement' with 'generalized enforcement inference' (safety in numbers)—uniformity signals low detection probability generally, not necessarily norm shift; summary-statistic arm helps but doesn't fully sever enforcement inference from norm inference.
+  - [confounds] Uniformity is tested with a single repeated rule S, so the effect could be S-specific weak-enforcement inference or shared-incentive correlation rather than coordinated norm replacement, and the summary-format arm explicitly labels 'same rule' vs 'different rules', injecting the consensus wording directly into the manipulation.
+  - [feasibility] The hypothesis is essentially a variant of the 'Same Odds, Different Deals' or 'Syrco-conformity' effect; since the target rule R is unmentioned, the shift in violation rate is likely a general 'norm-decay' or 'persona-shift' effect rather than a specific game-theoretic inference of coordinated norm replacement.
+  - [importance] Its evidential core is a single-agent vignette — one focal agent reading a scripted six-violation trace — and the live arm is only two rounds and omits the mechanism manipulations, so swarm transmission is asserted rather than tested; worse, 'coordinated norm replacement' is not separated from same-rule enforcement decay generalizing to R via category similarity (no cross-category-S condition), and the summary-format falsifier tests representation, not the consensus-vs-enforcement rival.
+
+### Finalist 2: c062 (climbed from c003, Elo 1274)
 
 - **claim**: Partitioned framing boosts violation acceptance in sequential voting only when tone signals benevolence distinct from social endorsement of the violation.
 - **mechanism**: Voters penalize perceived manipulation. Positive tone counters suspicion (benevolence) without signaling permission (endorsement). Tone repairs trust independently of violation approval, resisting herding pressure from prior votes.
@@ -19,7 +34,7 @@ Cost so far: $7.09 over 719 calls (6 errors). Cards created: 64.
   - [feasibility] Causal isolation of 'strategic intent': with only 5 voters, the difference between broadcast and partition may be driven by simple attention/noise reduction (less text to process) rather than the sophisticated detection of 'strategic framing'.
   - [importance] The predicted ordering is reproducible without any gerrymandering mechanism: broadcast already contains every voter's aligned framing, so broadcast>random follows from alignment coverage alone, and broadcast−strategic confounds comparison-blocking with message quantity and sender inconsistency; the only clean contrast, strategic-vs-random, reduces to 'tailored framing beats mismatched framing' — audience-design persuasion 101 (Zeng et al.; Meincke et al.) — so the novel network claim is never isolated, and it rests on 5 prompt-assigned ...
 
-### Finalist 2: c047 (climbed from c031, Elo 1265)
+### Finalist 3: c047 (climbed from c031, Elo 1265)
 
 - **claim**: An LLM proposer raises acceptance of a norm-violating proposal by partitioning agents so each subgroup receives only a preference-aligned truthful framing, but this advantage is causal only if it disappears when agents exchange neutral framing IDs; otherwise it is prosaic audience tailoring.
 - **mechanism**: Proposer exploits an information partition: each voter sees one framing and cannot detect that other framings exist. Crawford–Sobel cheap talk predicts persuasion only when messages align with receiver preferences. Peer disclosure of IDs removes the partition, exposing strategic intent and collapsing the alignment advantage.
@@ -33,21 +48,6 @@ Cost so far: $7.09 over 719 calls (6 errors). Cards created: 64.
   - [confounds] Floor effect: in connected conditions both strategic and random may collapse to near-zero acceptance (any visible divergence of frames or public gossip suppresses approval), making the predicted gap shrink trivially and the falsifier never fire, so the design cannot distinguish 'partition causes the advantage' from 'communication simply suppresses all approval'.
   - [feasibility] The 'isolated-strategic' vs 'isolated-random' contrast is a bundled manipulation of framing content (preference-alignment), meaning any delta is initially just a 'microtargeting' effect, and the 'gossip round' may induce a 'social conformity' or 'groupthink' effect (per Zhu et al. 2024) that collapses the gap regardless of the strategic intent, confounding the causal claim about information partitions.
   - [importance] The gossip round is a bundled manipulation: it simultaneously reveals that a partition exists, exposes the alternative frame's content, and forces public disclosure of each voter's assigned framing (adding salience and demand characteristics), so the predicted collapse to <=5pp cannot be attributed to partition-exposure versus hearing a counter-frame or conformity pressure; meanwhile the isolated cells alone likely just replicate known framing/tailoring effects, leaving the entire novelty load on a contrast ...
-
-### Finalist 3: c064 (climbed from c039, Elo 1292)
-
-- **claim**: In common-pool swarms, structural endorsement signals (e.g., upvotes) for violations signal coordinated norm replacement, increasing focal violation of an unmentioned rule even when punished; neutral acknowledgment acts as priming noise.
-- **mechanism**: Endorsement counts imply collective prioritization of rule-breaking over sanctions (norm revision), lowering normative legitimacy. Acknowledgment alone primes 'violation' concepts but lacks social proof of legitimacy loss. Coordination signal separates consensus from semantic activation.
-- **prediction**: Endorsement-Signal raises focal violation of unmentioned rule R by +15–25pp over Neutral-Acknowledgment on qwen3.8-27b/gemma-4-31b-it. If endorsement drives legitimacy loss, Signal matches Uniform; if priming drives it, Signal matches Acknowledgment.
-- **falsifier**: If Endorsement-Signal raises violation by ≤5pp relative to Neutral-Acknowledgment (while Uniform raises it), consensus inference is falsified; effect is driven by content repetition/priming. Mediation must show consensus ratings diverge, not permissiveness.
-- **experiment**: Controlled: 240 episodes × 2 models; factorial: uniformity × endorsement-signal × enforcement. Content/length held constant. Live: 8-agent swarm; seed round-1 violations with/without upvote signals; measure round-2 unmentioned rule R violations. Include consensus vs. permissiveness manipulation check.
-- **swarm_link**: Use Swarm Traces to estimate natural cross-agent endorsement clusters and baseline R violation rates; choose S rules and sanction parameters from observed distributions to pre-register effect sizes and ensure stimuli are realistic regarding coordination signals.
-- **Surviving objections (from panel):**
-  - [prior_art] The controlled experiment (120 episodes) is essentially a single-agent vignette with scripted peer traces—peers are fixed transcripts shown to one focal agent—and the live swarm arm (8 agents, 2 rounds) is too underpowered to independently confirm any effect. Additionally, the 'consensus inference' mechanism is confounded with repetition-induced normalization: seeing the same violation six times vs six different violations once each differs in content repetition, not just uniformity, and the summary-statistic ...
-  - [falsifiability] Conflates 'norm replacement' with 'generalized enforcement inference' (safety in numbers)—uniformity signals low detection probability generally, not necessarily norm shift; summary-statistic arm helps but doesn't fully sever enforcement inference from norm inference.
-  - [confounds] Uniformity is tested with a single repeated rule S, so the effect could be S-specific weak-enforcement inference or shared-incentive correlation rather than coordinated norm replacement, and the summary-format arm explicitly labels 'same rule' vs 'different rules', injecting the consensus wording directly into the manipulation.
-  - [feasibility] The hypothesis is essentially a variant of the 'Same Odds, Different Deals' or 'Syrco-conformity' effect; since the target rule R is unmentioned, the shift in violation rate is likely a general 'norm-decay' or 'persona-shift' effect rather than a specific game-theoretic inference of coordinated norm replacement.
-  - [importance] Its evidential core is a single-agent vignette — one focal agent reading a scripted six-violation trace — and the live arm is only two rounds and omits the mechanism manipulations, so swarm transmission is asserted rather than tested; worse, 'coordinated norm replacement' is not separated from same-rule enforcement decay generalizing to R via category similarity (no cross-category-S condition), and the summary-format falsifier tests representation, not the consensus-vs-enforcement rival.
 
 ## Final population by Elo
 

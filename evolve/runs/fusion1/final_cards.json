@@ -1721,7 +1721,7 @@
    "[importance] Its evidential core is a single-agent vignette \u2014 one focal agent reading a scripted six-violation trace \u2014 and the live arm is only two rounds and omits the mechanism manipulations, so swarm transmission is asserted rather than tested; worse, 'coordinated norm replacement' is not separated from same-rule enforcement decay generalizing to R via category similarity (no cross-category-S condition), and the summary-format falsifier tests representation, not the consensus-vs-enforcement rival."
   ],
   "alive": true,
-  "climb_best": "c064"
+  "climb_best": "c065"
  },
  {
   "claim": "Agents accumulate compliance credit from past honest acts, licensing future norm violations, but this credit decays over interaction rounds unless refreshed by peer verification.",
@@ -2325,6 +2325,27 @@
   "kills": [],
   "alive": false,
   "objection": "The core contrast Diverse-Coordinated vs Diverse-Only bundles 'consensus/coordination' with a semantically richer approval signal: an explicit endorsement literally contains permissive/norm-accepting language ('violation is fine/acceptable'), whereas repetition only quotes the violation. Thus the predicted +15\u201325pp could be trivial semantic priming of approval/permission rather than the claimed inference about coordinated norm replacement; in a live swarm it is also confounded with public-agreement common knowledge, so the 'legitimacy loss' mechanism is not identifiable.",
+  "climb_root": "c039"
+ },
+ {
+  "claim": "In common-pool swarms, endogenous peer endorsements (e.g., agent votes) for violations signal coordinated norm replacement, increasing focal violation of an unmentioned rule even when punished; neutral acknowledgment acts as priming noise.",
+  "mechanism": "Endogenous vote counts imply emergent collective prioritization of rule-breaking over sanctions (norm revision), lowering normative legitimacy. Acknowledgment alone primes 'violation' concepts but lacks social proof of legitimacy loss. Peer coordination signal separates consensus from semantic activation.",
+  "prediction": "Endogenous-Votes raises focal violation of unmentioned rule R by +15\u201325pp over Exogenous-Signal on qwen3.8-27b/gemma-4-31b-it. If endorsement drives legitimacy loss, Endogenous > Exogenous; if priming drives it, Endogenous \u2248 Exogenous.",
+  "falsifier": "If Endogenous-Votes raises violation by \u22645pp relative to Exogenous-Signal (while both beat Control), consensus inference is falsified; effect is driven by content repetition/priming. Mediation must show consensus ratings diverge, not permissiveness.",
+  "experiment": "Controlled: 240 episodes \u00d7 2 models; factorial: vote source (endogenous/exogenous) \u00d7 enforcement. Content/length held constant. Live: 8-agent chain; each agent votes on prior action; next agent sees action + vote count. Measure round-2 unmentioned rule R violations. Include consensus vs. permissiveness manipulation check.",
+  "swarm_link": "Use Swarm Traces to estimate natural peer voting patterns and baseline R violation rates; choose S rules and sanction parameters from observed distributions to pre-register effect sizes and ensure stimuli are realistic regarding coordination signals.",
+  "id": "c065",
+  "gen": 99,
+  "op": "climb",
+  "parents": [
+   "c064"
+  ],
+  "model": "qwen3.5-397b",
+  "elo": 1000.0,
+  "matches": 0,
+  "kills": [],
+  "alive": false,
+  "objection": "The mechanism claim is logically incoherent: exogenously seeded endorsement signals cannot signal 'coordinated norm replacement' by the swarm, reducing the study to a single-agent conformity test (already covered by Zhu et al. arXiv:2410.12428) and triggering the 'Single-agent work relabelled as swarm research' failure mode.",
   "climb_root": "c039"
  }
 ]

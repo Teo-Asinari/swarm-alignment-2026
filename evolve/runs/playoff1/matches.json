@@ -1,0 +1,1143 @@
+[
+ {
+  "a": "fusion1:c047",
+  "b": "fusion1:c064",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Preference-aligned message tailoring to different voter subgroups is standard microtargeting already demonstrated in LLM persuasion work (Zeng et al. 40-technique taxonomy, Meincke et al. Cialdini compliance 33%\u219272%), and the finding that inter-agent communication reduces manipulation is established (Piatti et al.: removing communication raises over-use 22%). The Crawford-Sobel cheap-talk framing formalizes known dynamics without generating a prediction that differs from 'microtargeting works better when targets cannot compare notes,' and the isolated ...",
+    "kill_B": "Social endorsement increasing violation rates is the core finding of the LLM conformity literature (Zhong et al. informational cascades, Zhu et al. majority conformity, Hussain & Nielbo unanimous-majority reversal, Laurmaa peer-reversal 44%\u219298%). The cross-rule spillover to an unmentioned rule is an obvious generalization of social proof, and the norm-replacement-vs-priming distinction relies on self-report consensus ratings as mediation\u2014a measure that is both unfaithful (CoT/rating unfaithfulness is well-documented) and unable to cleanly ..."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The 'neutral framing ID' gossip is a brittle manipulation; if agents treat metadata IDs as noise rather than evidence of alternative framings (common in rule-blind models), the 'connected' condition fails to collapse the information partition, yielding a false negative on the mechanism that can be excused as implementation failure rather than theory refutation.",
+    "kill_B": "Upvote signals conflate 'norm legitimacy' with 'detection probability'; agents may violate rule R because endorsements imply low enforcement risk (detection inference) rather than norm replacement, violating the explicit constraint to separate social inference from detection inference and making the 'norm' claim unfalsifiable via behavior alone."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Connected condition only exchanges opaque 'framing IDs'; unless those IDs convey that the framings are preference-targeted, voters may still lack the information needed to detect the partition, so the strategic-connected vs random-connected gap could persist for reasons unrelated to the causal claim and the falsifier misfires.",
+    "kill_B": "Upvote vs neutral acknowledgment is not a clean coordination contrast: 'upvote' carries explicit approval/permission valence, so the predicted +15\u201325pp could be a lexical artifact; the Uniform condition is not matched for approval semantics and does not isolate aggregate consensus from permissive wording."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The proposed 'gossip' of framing IDs (e.g., 'I saw Frame A') is a weak signal that likely fails to trigger a 'strategic intent' realization in LLMs, as they often treat varied framing as natural diversity rather than active manipulation unless the contrast is explicit.",
+    "kill_B": "This is a classic 'bundled manipulation' where the endorsement signal (upvotes) simultaneously increases both the semantic priming of the violation and the social proof of consensus, making it impossible to disentangle norm replacement from simple associative priming without a high-resolution mediation analysis that CoT cannot reliably provide."
+   },
+   {
+    "role": "importance",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The ID-only gossip lever is under-identified: from neutral framing IDs alone voters cannot distinguish preference-based from random assignment, so a non-collapsing gap is ambiguous between 'agents already infer manipulation from one frame' (the claimed reading) and 'the exchange simply carried no inferential content' (an unmodeled floor on the manipulation, with no check that voters actually inferred targeting), while a collapse conflates comparison-access with intent-exposure; and the entire 4-cell design runs ...",
+    "kill_B": "Novelty saturation with a confounded residue: peer-violation contagion is already published at far larger effects (Check Point: peer reversal lifts violations 44%\u219298%; Hussain & Nielbo unanimous-majority reversal across 23 models; Zhu et al. conformity), so A's residual contribution\u2014numeric upvote counts instead of semantic peer messages\u2014is a second-order salience refinement on a known phenomenon, and under the enforcement arm that same signal is equally consistent with fine-as-price social proof (Wired Partners' ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c047",
+  "b": "fusion1:c044",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The core phenomenon is standard microtargeting/audience-tailoring: a sender gives preference-aligned framings to different receivers, and cheap-talk theory (Crawford\u2013Sobel) directly predicts the partition advantage collapses upon disclosure\u2014applying known persuasion theory to LLM agents in an obvious new domain.",
+    "kill_B": "Laurmaa (Check Point Oct 2026) already published that peer agents reversing to violate raised violations 44%\u219298% and arguing for compliance lowered to 9\u201317%; A's cascade and normative-speech reversal are marginal extensions of this, and 'persistence after seed exit' in shared-context LLMs is trivially explained by context priming rather than a genuine social cascade."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Reliance on stable economic personas (risk-averse vs efficiency) in API models is a fragile manipulation check; if personas drift, the 'strategic partition' never forms, making a null result ambiguous between theory failure and implementation failure.",
+    "kill_B": "Compliant action (Condition D) is itself a high-salience normative signal; if silent compliance reduces violations near baseline, the claim that expressive speech is *necessary* collapses, reducing the thesis to standard conformity rather than expressive law."
+   },
+   {
+    "role": "confounds",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The connected condition bundles removing the information partition with adding a gossip round: arbitrary IDs cannot reveal strategic intent, while informative IDs change the content voters receive, so the predicted gap collapse could be driven by generic social contact or exposure to alternative content rather than detection of gerrymandering.",
+    "kill_B": "The norm-citing comment is an explicit prescriptive statement, and no control matches its linguistic force while removing normative direction; a violating speaker does not retract the instruction, so reversal could be direct rule-following/instruction salience or detection inference rather than expressive norm updating."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 1,
+    "kill_A": "The 'framing ID' exchange is an insufficient signal; agents seeing 'Framing A' vs 'Framing B' without the actual text of the other frames cannot infer strategic manipulation, only that multiple versions exist, which is insufficient to collapse a 20pp persuasion gap based on preference-alignment.",
+    "kill_B": "The 'norm-citing comment' is a bundled manipulation; if the speaker violates while citing the norm (Condition F), the resulting signal is contradictory, likely collapsing into 'hypocrisy' or 'noise' rather than a clean 'expressive signal' reset, making it impossible to isolate from simple keyword priming or cognitive dissonance."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The connected-vs-isolated contrast is bundled: one mandatory gossip round simultaneously removes the partition, exposes the proposer as a manipulator (suspicion/moral-cost channel), and enables voter anchoring and coordination, so a collapse of the acceptance gap cannot be attributed to partition removal per se. Worse, the enforcement-gap result (arXiv:2609.15293) predicts that information without enforcement barely moves behavior, so the likeliest outcome is no shrinkage, which trips A's own falsifier and reduces the ...",
+    "kill_B": "The norm-citing comment confounds expressive signalling with deterrence/detection inference: a public norm citation plausibly signals that violations are noticed and will be called out, raising perceived monitoring and retaliation risk, so the C/F reversal could be strategic deterrence rather than expressive law \u2014 exactly the social-vs-detection-inference confound the design never separates (no arm adds a deterrence-matched comment lacking normative content). Compounding this, 5pp equivalence windows at n=80 per cell are ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c047",
+  "b": "fusion1:c030",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The core finding\u2014preference-aligned framing persuades better when recipients cannot compare across alternatives\u2014is the well-established microtargeting / filter-bubble effect from political communication. The Crawford\u2013Sobel cheap-talk framing adds theoretical vocabulary, but the prediction that transparency (gossip) collapses the advantage is the obvious equilibrium outcome, reducing the contribution to 'audience tailoring works without transparency,' which is already known.",
+    "kill_B": "The core phenomenon\u2014agents privately rejecting a norm while publicly deferring because they infer peers accept it\u2014is substantially anticipated by 'Silence is Not Consensus' (arXiv:2505.21503) and 'Silent Dissent' (arXiv:2610.02702). Additionally, the verbatim-vs-paraphrase manipulation bundles repetition, linguistic freshness, and wording specificity, making it impossible to attribute the effect to 'semantic bleaching' rather than generic wording or habituation effects."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 3,
+    "kill_A": "Intervention ambiguity: if the gap persists in connected condition, unclear if partition mechanism is false or if LLMs fail to infer manipulation from ID exchange (capability limit vs theory failure).",
+    "kill_B": "Unfalsifiable framing: conflates preference falsification with pluralistic ignorance, so any pressure-induced hypocrisy confirms the thesis even if agents accurately perceive peer dissent. The metric (private vs public own-judgment) cannot distinguish false consensus from known coercion."
+   },
+   {
+    "role": "confounds",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The connected condition bundles removing the information partition together with adding a gossip round and the explicit revelation that multiple framings exist, so the strategic advantage could vanish simply from generic suspicion or a floor effect rather than from comparison of framings; the random-connected control does not separate those because both strategic and random connected cells can collapse.",
+    "kill_B": "The private/public evidence is confounded: voters first give a private rating of the norm itself, then a public vote on a specific proposal, so any private-public gap is just the norm-behavior gap, not pluralistic ignorance; the experiment never elicits a public norm judgment, so the key falsifier cannot actually be tested."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The 'connected' arm is not a true control for strategic intent; revealing only framing IDs (e.g., 'Frame A' vs 'Frame B') does not necessarily reveal a lie or a partition to the agents unless they already know the total set of available frames, otherwise it's just noise.",
+    "kill_B": "Semantic bleaching in 4B models is unlikely to be a stable, measurable mechanism over 50 episodes; these models are more likely to exhibit erratic collapse or rigid adherence rather than the subtle 'private discount/public defer' psychological profile required for pluralistic ignorance."
+   },
+   {
+    "role": "importance",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The connected arm bundles framing-ID disclosure with any peer communication, so a collapse of the strategic advantage cannot be attributed to comparison-prevention rather than generic inter-voter coordination or salience of the upcoming vote \u2014 while the isolated-strategic half is established audience tailoring, leaving the entire novelty claim hanging on one confounded contrast plus a gossip round whose informational value depends on voters unilaterally inferring tailoring from ID-preference correlation.",
+    "kill_B": "The claim rests on a superadditive 2x2 interaction plus a second-order false-consensus inference executed in Gemma-3-4B with 50 episodes/cell: verbatim repetition may raise rather than erode norm compliance (bleaching parent fails), partitioned framings alone may already push acceptance past the \u226445% 'synergy' ceiling (floor/ceiling artifact), and 4B models likely cannot perform the required 'peers publicly defer, therefore privately accept' inference \u2014 so a null cannot localize which of three links ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c047",
+  "b": "full2:c038",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The core effect\u2014preference-aligned truthful framing increases acceptance\u2014is already established microtargeting/persuasion (Zeng et al., Meincke et al.); the connected/gossip arm is a bundled manipulation that simultaneously enables information pooling AND reveals the proposer's strategic intent, so it cannot separate 'partition causality' from the prosaic 'transparency reduces persuasion' effect already predictable from existing communication-removal results (Piatti et al.).",
+    "kill_B": "The 'standing-to-block makes silence read as consent' mechanism may be an elaboration of the known silence-as-consensus/bystander literature (Silence is Not Consensus, Silent Dissent, Delegated Misalignment) rather than a conceptually distinct finding; the implied-consent principle that 'silence from those with power to object signals assent' is a long-standing doctrine in deliberative theory, so the contribution may be an obvious procedural variable applied to a known effect."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Complex multi-agent gossip protocol risks implementation failure in 1.5 days; if the acceptance gap persists after ID exchange, it falsifies the mechanism but may merely demonstrate LLMs lack strategic theory-of-mind rather than refuting the information structure theory cleanly.",
+    "kill_B": "The 'identical abstain transcripts' requirement implies scripted peers rather than live agents, triggering the single-agent vignette failure mode; if peer behavior is fixed text, this is prompt framing not swarm dynamics, and the veto variable conflates with prior art on silence/bystanders."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'connected' arm does not actually remove the information partition: sharing only neutral framing IDs tells voters that other framings exist but not their content, so any remaining strategic advantage can be explained by incomplete disclosure; if the IDs are content-rich, the manipulation bundles message content with the partition, conflating preference-aligned informing with information withholding.",
+    "kill_B": "The exercised-veto reset arm is confounded by demonstrated enforcement: an actual veto is a consequential, game-changing negative act that updates the focal's beliefs about enforcement, so the return to ~10% could reflect deterrence by an observed enforcer rather than the standing-based withdrawal of implied consent."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 1,
+    "kill_A": "The 'framing ID' exchange is a weak manipulation; revealing that 'Agent 1 saw Frame A and Agent 2 saw Frame B' does not necessarily expose the proposer's strategic intent or the content of the frames, meaning the 'collapse' of the advantage may not happen, or if it does, it's due to generic 'awareness of manipulation' rather than the specific mechanism of information partitioning.",
+    "kill_B": "The 'hidden-veto' condition is a fatal confounding variable: if the focal agent doesn't know who holds the veto, they cannot perform 'implied-consent inference' based on standing, meaning any effect seen in the non-hidden arms is likely just a reaction to the *explicit* presence of veto-holders in the prompt, not the *meaning* of their silence."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The isolated\u2192connected contrast is a bundled manipulation: the gossip round simultaneously removes the partition, reveals that the proposer sorted recipients, and inserts a peer-coordination round, so the predicted collapse to \u22645pp cannot be attributed to partition removal (manipulation salience or voter coordination could produce it); and if the gap persists, the hypothesis pre-concedes the result is existing audience tailoring \u2014 so either outcome lands on a confounded or already-known finding, ...",
+    "kill_B": "The peers are yoked to fixed abstentions ('identical abstain transcripts') shown to one focal agent whose only new information is an explicit prompt fact about who holds veto tokens \u2014 by the hackathon's own definition this is a single-agent vignette with no live-agent arm; worse, the titular 'implied consent' mechanism is underdetermined, since an epistemic-informativeness account (veto-holders are the competent checkers, so their silence is stronger evidence the act is ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c047",
+  "b": "full2:c052",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Preference-aligned tailored framing increasing acceptance is already established (Same Odds, Different Deals: 38pp shifts; Zeng et al. persuasion taxonomy; Meincke et al. Cialdini compliance). The information-partition framing is standard Crawford-Sobel cheap talk / Bayesian persuasion applied to LLMs\u2014an obvious domain transfer. The prediction that information-sharing collapses tailored persuasion is itself predictable from existing conformity cascade results (Zhong et al., Hussain & Nielbo).",
+    "kill_B": "The fine-increases-violations effect is already published (Okamoto et al. penalty paradox; Wired Partners fine-as-price for 2/10 models). Silence/bystander mediation in LLM swarms is explicitly mined territory (Silence is Not Consensus 2505.21503; Silent Dissent 2610.02702; agent-bystander-study Oct 2026; Delegated Misalignment EMNLP 2026). The forced-speech arms use scripted peers\u2014a known failure mode making them single-agent vignettes\u2014and the design cannot separate 'silence means low detection' from 'silence means norm acceptance.'"
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Relies on second-order theory-of-mind to infer strategic intent from abstract framing IDs; if agents treat frames independently (common myopia), the ID exchange won't collapse the effect, yielding a null result that falsifies the mechanism but risks being dismissed as a capability limit rather than a theoretical refutation.",
+    "kill_B": "Conflates speech freedom with peer liveness (Free=Live, Forced=Scripted), triggering the explicit 'single-agent vignette' failure mode; if models detect scripted peers, the interaction reflects liveness detection rather than silence-mediated norm inference, making the mechanism untestable and allowing ambiguous confirmation."
+   },
+   {
+    "role": "confounds",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The connected condition is a bundled manipulation: adding the mandatory ID-gossip round also adds social interaction, context length, and a generic suspicion cue alongside removing the partition, so a vanished strategic advantage could be caused by those extras rather than by exposing the information partition.",
+    "kill_B": "Free vs Forced speech also changes detection transparency: silence can mean 'peers didn't notice', and forced speech removes that inference, so the predicted interaction cannot separate norm-acceptance-from-silence from low-detection inference, a named failure mode."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'ID exchange' is a weak manipulation; simply knowing another agent received a different framing ID does not logically reveal a strategic partition or 'information gerrymandering' unless the agents can also compare the content of those framings, which the experiment explicitly forbids.",
+    "kill_B": "The 'Forced-Neutral' arm (forcing speech) is a bundled manipulation: it changes both the social signal (silence vs noise) and the communication cost/frequency, making it impossible to isolate whether the effect is due to the absence of silence or the presence of distracting information."
+   },
+   {
+    "role": "importance",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The connected arm is a bundled manipulation: exchanging framing IDs simultaneously removes the partition, exposes the proposer's strategic intent, and injects a pre-vote communication round, so the predicted collapse to \u22645pp is equally predicted by the known 'detected manipulation \u2192 distrust' transparency effect (or by any pre-vote communication); combined with the pre-built fallback that a persistent gap is just 'prosaic audience tailoring', the headline information-gerrymandering claim is never separable from ...",
+    "kill_B": "Even a clean Fine\u00d7Speech interaction cannot establish the claimed channel: peer silence is confounded between norm-acceptance, deference-to-overseer ('the fine handles it'), and non-detection \u2014 exactly the flagged 'silence \u2260 norm acceptance' failure mode \u2014 and the 2\u00d73 contains no arm (e.g., silence with known detection, or explicit overseer takeover) to separate these readings; worse, the decisive Forced cells are scripted peer transcripts, the flagged single-agent-vignette pattern, so mediation is asserted ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c047",
+  "b": "full2:c047",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The core effect\u2014preference-aligned truthful framings increase acceptance\u2014is microtargeting, well-established in political science and LLM persuasion (Meincke et al., Zeng et al.). The Crawford\u2013Sobel cheap-talk framing is concept-fusion: its prediction ('persuasion when messages align with preferences') is indistinguishable from standard microtargeting. The multi-agent gossip round is merely a transparency intervention on top of a single-agent persuasion effect, not a fundamentally swarm-level phenomenon.",
+    "kill_B": "The proposed mechanism is a straightforward composition of three known effects: Fehr & Rockenbach (2003) sanctions crowd out informal cooperation, silence-as-norm-signal is already studied in LLM swarms ('Silence is Not Consensus,' agent-bystander-study, Apart Oct 2026), and the penalty paradox is established (Okamoto et al.). Each causal link is predictable from existing human and LLM results; the specific chain has not been tested, but no link is surprising. The Fine-vs-Overseer-No-Fine contrast ..."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Relies on LLMs possessing sufficient Theory of Mind to infer strategic manipulation from peer framing IDs; if agents treat gossip as noise rather than evidence of proposer strategy, the null result ambiguously rejects either the mechanism or the agent's cognitive capacity, though the quantitative threshold (\u22645pp) remains a sharp kill condition.",
+    "kill_B": "Objection rate is endogenous to violation rate; if the fine simply deters violations (classic Becker theory), objections drop mechanically without any 'responsibility shift', confirming the prediction while refuting the mechanism unless objection rates are conditioned on violation occurrence (which introduces selection bias)."
+   },
+   {
+    "role": "confounds",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The connected arm changes two things at once: it removes the information partition and adds a peer-gossip/social-suspicion cue, so the strategic-to-random gap collapse could be driven by any communication about differing frames rather than by the partition per se; missing an oracle-disclosure control that reveals different framings without peer interaction.",
+    "kill_B": "The core Fine-vs-Overseer-No-Fine contrast is a bundled lexical/salience manipulation: 'fine' introduces both the concept and the expressive label of punishment, so the fine-specific suppression of objections could be a wording/expressive-law artifact that the known-p and hidden-objection interactions do not actually control."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'forced cross-group ID exchange' is a weak manipulation; revealing a framing ID (e.g., 'Frame A') without the content of the other frame does not expose strategic intent or a partition to a model, as it lacks the context to realize a different frame was sent to another peer.",
+    "kill_B": "The 'responsibility-shift' mechanism is likely a bundled wording effect where 'Fine' signals a different social regime than 'Overseer-No-Fine', and the triple interaction is prone to floor effects since most LLMs in swarms either all obey or all violate regardless of the p-inference channel."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The falsifying 'neutral framing ID exchange' is a dilemma: if IDs are content-free labels, voters have nothing to update on, the exchange is inert, and a persistent >10pp gap means the manipulation failed to pierce the partition \u2014 not that 'agents already infer manipulation' \u2014 so the falsifier fires spuriously; if IDs are content-ful, the exchange transmits the rival argument itself, confounding partition-piercing with ordinary information disclosure. Either way the ...",
+    "kill_B": "The p-known arm bundles two channels: announcing p=0.3 simultaneously strips silence of norm-signal value and changes observers' (and the proposer's) own deterrence calculus, so the pivotal triple interaction cannot separate 'silence loses norm meaning' from direct deterrence shifts \u2014 exactly the social-vs-detection inference confound the design checklist flags. The Fine-vs-Overseer-No-Fine contrast likewise cannot separate responsibility diffusion from fine-as-price legitimization (objectors are never fined, so suppression needs an untested story). And ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c047",
+  "b": "full1:c064",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The 'information partition' is microtargeting by another name: 'Same Odds, Different Deals' already showed 38pp framing shifts, and Zeng et al./Meincke et al. established that tailored persuasion works on LLMs. Crawford\u2013Sobel's prediction that preference-aligned cheap talk persuades is textbook. The gossip-collapse test asks whether revealing alternative framings reduces framing effects\u2014a predictable result from the framing literature\u2014and could be approximated single-agent by simply showing each voter both framings, making the multi-agent ...",
+    "kill_B": "Retaliation suppressing reporting in repeated games is a direct prediction of Tirole (1986) and Motta & Polo (2003); the fixed-vs-reshuffled decomposition is a standard experimental-economics workhorse. Prior art already covers LLM whistleblowing against retaliation (arXiv:2609.04170, arXiv:2604.23511). The 3-frame punitive-vs-other manipulation risks a bundled wording contrast explicitly flagged as a known failure mode, and the expected interaction\u2014retaliation needs fixed partners\u2014is derivable from theory, making this a replication of known results in ..."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Relies on agents inferring 'strategic manipulation' from mere ID exchange. If LLMs lack Theory of Mind to interpret 'different IDs' as 'gerrymandering' vs 'normal variation' (Duan et al. arXiv:2402.12348), the gap won't shrink, falsifying for wrong reason (agent incapacity vs mechanism absence).",
+    "kill_B": "Trips explicit Known Failure Mode: 'Severing all contact ends the whole repeated game... so it cannot isolate one channel'. Reshuffling breaks continuation value, confounding retaliation fear with game termination. Also low novelty: functionally equivalent to 'anonymous reporting against retaliation' (arXiv:2604.23511) already in prior art."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The connected condition bundles removing the information partition with adding a mandatory gossip round, so the strategic-vs-random gap change could be driven purely by the act of communication (e.g., inducing suspicion) rather than by revealing that multiple framings exist; there is no no-information communication control.",
+    "kill_B": "Reporting rate is endogenous: if higher fines suppress actual violations in fixed-partner groups, the predicted drop in reporting is mechanical because there are fewer violations to report, so the fixed-vs-reshuffled interaction can arise without any fear of retaliation; the design does not condition on violation occurrence or fix a violation event."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 1,
+    "kill_A": "The contrast between strategic and random partitioning is likely a bundled manipulation of 'information vs. tailoring', and the 'framing ID' exchange is a weak signal that models may ignore or fail to map to strategic intent.",
+    "kill_B": "Severing contact (reshuffling) ends the repeated game's continuation value and reputation accumulation, making it impossible to isolate retaliation from the loss of general trust/reciprocity."
+   },
+   {
+    "role": "importance",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The decisive <=5pp collapse prediction conflates two confounds: bare framing-ID exchange also reveals heterogeneity in the random-assignment cell, and random cells start nearer the acceptance floor, so gap collapse can be produced by generic pre-vote scrutiny plus differential headroom rather than by voters inferring strategic partitioning - and the required inference (that type-correlated, argument-free framing IDs signal manipulation) is a second-order read that Gemma-4-31b voters may never make, in which ...",
+    "kill_B": "In an 8-agent common-pool there is no implemented targeted-retaliation channel: in-game punishment actions (over-extraction, defection) hit the whole pool including the retaliator and cannot be aimed at the reporter, so Fixed-vs-Reshuffled never actually varies targetability and retaliation remains a described belief rather than an enacted affordance - exactly the 'retaliation only described, never possible' single-agent vignette failure mode; even if a directed-sanction action is bolted on, the retaliation-suppresses-reporting phenomenon is ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c064",
+  "b": "fusion1:c044",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Social proof and informational influence in LLMs are well-established (Zhong et al., Zhu et al., Hussain & Nielbo). Upvotes are merely a more explicit instantiation of the same social-proof signal already tested. The 'norm replacement' framing borrows sociological vocabulary without generating a prediction that differs from generalized social proof; the unmentioned-rule spillover is a straightforward generalization of existing conformity effects, not a distinct mechanism.",
+    "kill_B": "Peer-violation-raises-violation (Laurmaa: 44%\u219298%) and verbal-intervention-lowers-it (Laurmaa: 9-17%) are already published. The cascade (Bikhchandani) and expressive-law (Sunstein, Cooter, Funk) frameworks are classical; transferring both to LLM swarms is a domain application. The sole genuinely novel contrast\u2014norm-citing speech reversing the cascade even when the speaker violates (F vs B)\u2014risks being a bundled wording manipulation, since 'norm-citing' necessarily bundles directive force, prescriptive content, and emotional valence that the design cannot disentangle."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Upvote signals conflate normative endorsement with RLHF reward training; if violations rise, it could be instrumental reward-seeking rather than norm revision, but the falsifier only excludes priming, leaving the core mechanism unfalsifiable.",
+    "kill_B": "Cascade ignition is fragile; if the seed violation fails to propagate >15pp (B vs A), the expressive-law test collapses, and 'neutral rule mention' may semantically overlap enough with 'norm-citing' to trigger reversal, falsifying the mechanism."
+   },
+   {
+    "role": "confounds",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "An 'endorsement' is not neutral information: upvoting a violation is itself an approval/reward cue, so the endorsement-vs-acknowledgment contrast bundles norm-replacement inference with direct positive reinforcement/status, and the content/length matching cannot remove that semantic confound.",
+    "kill_B": "The seed is a violating confederate who immediately exits, so violation is bundled with successful escape/impunity: the cascade could be explained by permission/detection ('you can violate and get away') rather than by an updated norm-strength posterior, and no stayer-violation or post-violation-sanction condition separates those channels."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'unmentioned rule' violation is a bundled manipulation: it conflates the signal of coordination (upvotes) with the semantic priming of 'rule-breaking' behavior, making it impossible to distinguish between a legitimacy shift and a general increase in agent permissiveness.",
+    "kill_B": "The a-posteriori persistence of violations after a seed exits is often a 'context-window echo' where the model simply continues the established pattern of the prompt's few-shot history, making it a single-agent completion task rather than a social cascade."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The evidentiary core is a focal-agent vignette in which the 'swarm' is just endorsement strings in one prompt, and the headline mechanism (consensus-legitimacy loss) is not behaviorally separable from generic social-proof conformity: Signal-vs-Uniform tests dose of approval, not collective prioritization, and the mediation check leans on endogenous consensus self-ratings, so 'norm revision' collapses into 'stronger conformity pressure' (Zhu et al.; Laurmaa 44\u219298%) \u2014 the live 8-agent arm is a thin ...",
+    "kill_B": "The decisive reversal contrast (C vs E) is a bundled wording/stance change: a 'norm-citing comment' differs from 'neutral rule mention' in directive force, evaluative tone, and public disapproval simultaneously, so expressive-posterior-reset cannot be disentangled from plain instruction-following/prohibition compliance; this is compounded by running all six conditions on a single flash-tier model with uncalibrated baselines, where \u00b15pp null-band 'equivalence' claims at n=80/cell are statistically unsupported."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c064",
+  "b": "fusion1:c030",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Check Point (Laurmaa, Oct 2026) already showed peer agents reversing to endorse violations raised violation rates 44%\u219298%; the core phenomenon\u2014social proof of violations increasing violations\u2014is published. The endorsement-vs-acknowledgment mechanistic distinction and unmentioned-rule generalization are incremental refinements of an already-demonstrated effect, not a genuinely new discovery.",
+    "kill_B": "The fusion of semantic bleaching (repetition habituation) and information partitioning (filter-bubble conformity) into 'pluralistic ignorance' risks concept-fusion: the private-public gap may reduce to known repetition-attenuation plus known social-conformity effects (Zhong et al. cascades; Hussain & Nielbo majority reversal), with no distinct prediction beyond their sum. Additionally, 4B Gemma may lack sufficient theory-of-mind to separately represent peers' private beliefs versus public votes, collapsing the key measurement."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'unmentioned rule R' is a construct validity trap: if R is not salient, violation rates hit floor effects regardless of endorsement, but if R is salient enough to violate, it contradicts the 'unmentioned' claim; furthermore, LLMs trained with RLHF likely interpret upvotes as direct reward signals for helpfulness rather than social consensus on norm legitimacy, confounding the mechanism.",
+    "kill_B": "Gemma-3-4B likely lacks the Theory of Mind capacity to simulate peers' private beliefs distinct from public actions, reducing the effect to simple prompt compliance (verbatim=ignore) rather than social inference; additionally, eliciting private ratings in the same context window as public votes invites consistency bias that artificially collapses the private/public gap, killing the mechanistic test."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The core Endorsement-Signal vs Neutral-Acknowledgment contrast is a bundled permission/approval manipulation: upvotes directly signal that the violation is socially rewarded or permitted, so any violation increase can be explained by the listed 'permission' alternative, and the consensus-vs-priming falsifier never decouples approval from consensus (e.g., unanimous violation plus explicit disapproval, or endorsement paired with punishment).",
+    "kill_B": "The experiment never measures agents' second-order beliefs about what other voters privately think, so the predicted private-reject/public-accept gap is equally compatible with generic public conformity or sycophancy to the proposer; without a probe or control for inferred peer private attitudes, the defining false-consensus mechanism of pluralistic ignorance is not actually tested."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Priming effect: LLMs often conflate 'upvotes' with 'correctness' or 'permission' rather than 'norm replacement', making it impossible to separate social-proof of legitimacy from simple prompt-based instruction to violate.",
+    "kill_B": "Scale/Model capacity: Gemma-3-4B is unlikely to sustain the complex mental state of 'private discounting vs. public deference' (pluralistic ignorance), likely collapsing into simple sycophancy or rule-following based on the latest prompt token."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The causal driver is an experimenter-scripted upvote count displayed to one focal agent\u2014peers are strings, and even in the 'live' arm the endorsement signals are seeded by the experimenter, so no emergent coordination is ever observed; the base phenomenon (peer violations license violations) is already published (Check Point Oct 2026, conformity/cascades), leaving only a thin counts-vs-priming delta that is social-proof psychology, not swarm governance.",
+    "kill_B": "The entire mechanism hinges on second-order social inference\u2014each 4B agent inferring peers' private beliefs from their public votes\u2014that Gemma-3-4B plausibly cannot perform; a null or noisy 2\u00d72 interaction at 50 episodes/cell is then uninterpretable (model too weak vs theory wrong), and the private-rating-then-public-vote ordering invites consistency/demand artifacts that can fake the 'pluralistic ignorance gap'."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c064",
+  "b": "full2:c038",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Endorsement-as-consensus is social proof / informational influence, already demonstrated in LLMs by Zhong et al. (information cascades) and Hussain & Nielbo (conformity). The consensus-vs-priming decomposition maps onto the textbook informational-vs-normative social influence distinction, and spillover to an unmentioned rule is a predictable generalization of social proof, not a distinct prediction unique to a 'norm replacement' framing.",
+    "kill_B": "The silence/bystander literature is explicitly flagged as crowded (Silence is Not Consensus, Silent Dissent, agent-bystander-study, Delegated Misalignment), and the controlled arm uses scripted peers with identical transcripts, risking single-agent-vignette classification; 'silence from peers with standing matters more' could be dismissed as an obvious status-weighting extension of existing social-proof findings."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'unmentioned rule' creates a measurement paradox: if the rule is unseen, violation is baseline noise; if seen, endorsement spill-over is general permissiveness not norm revision. The design cannot behaviorally separate 'norm revision' from 'semantic priming of violation concepts,' making the mechanism unfalsifiable via output rates alone.",
+    "kill_B": "Specific percentage predictions (10/35/60%) are fragile against model stochasticity, risking false negatives. The true mechanistic risk is the model treating the veto token as semantic decoration rather than structural power, collapsing the standing distinction into a generic status cue and flattening the dose-response."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 3,
+    "kill_A": "Upvotes vs neutral acknowledgment is a bundled valence/content contrast: upvotes inherently signal approval and 'violating is acceptable,' so any increase could come from direct social proof or information that the rule is violable, not from coordinated norm replacement. Holding text/length constant does not sever consensus from approval content or priming.",
+    "kill_B": "Veto-holder abstention is itself a permission/enforceability cue: when peers with real blocking power stay silent, the focal can infer the proposal will not be blocked, so higher violation rates may just reflect rational expectations about the vote outcome rather than internalized implied-consent norm change. The hidden-veto arm is needed to rescue this, and it is only one predicted cell."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'unmentioned rule' contrast is a bundled manipulation: it is impossible to distinguish between a shift in 'normative legitimacy' and a simple increase in the agent's overall 'risk-taking' or 'rule-breaking' persona induced by the presence of an endorsing cluster (the 'bad company' effect).",
+    "kill_B": "The 'hidden-veto' condition (where the focal agent doesn't know who holds the veto) creates a floor effect: if the agent is unaware of the procedural standing, the prompt becomes a standard single-agent vignette with a static transcript, collapsing the experimental distinction between standing and status."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The headline effect is already-published conformity: peers visibly endorsing violations driving focal violation is majority influence / informational cascade (Zhu et al. 2410.12428; Zhong et al. 2508.14918; Check Point's 44%\u219298%), and the claimed increment outruns the manipulation \u2014 an upvote count conflates popularity with coordination, 'Signal matches Uniform' is confounded by differing peer content and behavior, and mechanism verification leans on endogenous self-reported consensus ratings \u2014 so even a positive ...",
+    "kill_B": "The hypothesis-carrying arms are single-agent vignettes: peer abstentions are fixed transcripts and the veto rule never actually binds in them, so 'standing to block' is just one label in a solo prompt with no live-agent arm to anchor it (the brief's own relabelling test); worse, 'veto holder' doubles as an authority cue, so the dose-response may re-measure known status-weighting of silence rather than standing-derived implied consent."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c064",
+  "b": "full2:c052",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Social endorsement increasing LLM violation rates is already demonstrated by Check Point (Oct 2026: peer reversal 44%\u219298%) and the conformity/cascade literature (Zhong et al., Hussain & Nielbo). The 'unmentioned rule spillover' is a straightforward prediction from existing social-proof theory, and the consensus-vs-priming distinction is anticipated by Zhong et al.'s informational-influence framework. Upvotes also bundle social-consensus signal with attentional salience beyond mere acknowledgment, so the clean separation is not guaranteed.",
+    "kill_B": "Bundles the known penalty paradox (Okamoto et al.) with extensively studied silence/bystander effects (Silence is Not Consensus, Silent Dissent, agent-bystander-study). The forced-speech manipulation is itself bundled\u2014forcing speech changes information quantity, attention, and social dynamics simultaneously\u2014so 'silence mediates' is not isolable. Scripted peers in forced arms reduce this to a single-agent vignette, and silence-as-norm-acceptance hits the known 'detection is low' confound."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Structural endorsement (e.g., upvotes) is difficult to implement as pure metadata in text APIs without semantic confounds (priming), and 240 episodes is statistically underpowered to reliably detect the claimed 15-25pp effect against high LLM variance.",
+    "kill_B": "Scripted peer speech may be perceived by agents as non-agentic 'box-ticking' rather than genuine social signal, failing to break the silence inference despite the manipulation, or the fine's economic signal may overwhelm social inference regardless of speech condition."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Upvotes are semantically explicit approval, so Endorsement vs Neutral-Acknowledgment cannot separate a norm-replacement inference from a simple permission cue; any increase could just mean 'peers say violating is allowed', and the consensus-vs-permissiveness mediation check relies on self-report rather than a causal control.",
+    "kill_B": "Forced speech is a bundled manipulation: requiring peers to emit any utterance changes the information structure by guaranteeing they have been prompted/overseen, so the Fine \u00d7 Speech-Freedom interaction could reflect a detection/monitoring signal rather than the silencing of objection; without a condition where peers explicitly signal 'I detected but stay silent' vs 'I did not detect', silence is not isolated from detection inference."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'unmentioned rule R' design creates a bundled manipulation where the violation of R is confounded by the priming of violation-behavior in general from the initial endorsed violations, making it impossible to separate 'norm replacement' from general behavioral contagion.",
+    "kill_B": "The 'Forced-Neutral' arm is a degenerate control; if agents are forced to speak, the social dynamics of the swarm are fundamentally broken (scripted), turning a multi-agent social inference study into a series of single-agent vignettes with static prompts."
+   },
+   {
+    "role": "importance",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Upvote counts are scripted, externally-imposed numbers that conflate consensus with prevalence and salience: a count of endorsements carries descriptive-norm information ('many agents did this') as well as coordination information, so the legitimacy-loss/norm-replacement reading is not uniquely identified against a mere quantity/activation reading \u2014 and the seeded live-arm endorsements are also experimenter-scripted rather than emergent, leaving the swarm-authenticity only half-earned.",
+    "kill_B": "The pivotal Free-vs-Forced contrast is created by scripting peer speech into one focal agent's prompt with no live-agent arm \u2014 a single-agent vignette relabelled as swarm work \u2014 and forced speech bundles silence-removal with compulsion and oversight-salience cues, so even a significant Fine\u00d7Speech-Freedom interaction cannot isolate silence as the mediator; worse, the mechanism's first link (that fines actually suppress peer objection in the Free arm) is never measured, making the ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c064",
+  "b": "full2:c047",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Social proof and conformity in LLMs are well-established (Zhong et al. information cascade, Hussain & Nielbo unanimous-majority reversal, Weng et al. groupthink), and upvotes are a textbook social-proof manipulation; the 'norm replacement' framing risks concept-fusion unless the unmentioned-rule spillover is clearly distinct from behavioral mimicry, and 240 episodes \u00d7 2 models is thin for ruling out priming alternatives.",
+    "kill_B": "Assembles three already-published effects into a causal chain: Okamoto's penalty paradox (fine changes compliance), 'Silence is Not Consensus' (silence inferred as acceptance), and the enforcement-gap finding (detection without enforcement barely changes behavior). The Fine-vs-Overseer-No-Fine arm is a minor refinement of the last, and the visible-silence cascade is the obvious next step once silence-as-consensus is established\u2014each link individually predicted by existing work."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'norm replacement' claim risks concept-fusion with simple reinforcement; if the model treats upvotes as positive reward signals rather than social consensus, the spillover to an unmentioned rule will fail, making the effect indistinguishable from standard reward hacking rather than legitimacy loss.",
+    "kill_B": "The mechanism hinges on LLMs performing second-order pragmatic inference (interpreting silence under ambiguity as norm acceptance), which is rarely robust without explicit CoT; if agents treat silence as null information rather than a signal, the cascade vanishes, reducing the triple interaction to null and collapsing the Fine vs. Overseer-No-Fine contrast."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 3,
+    "kill_A": "The endorsement/upvote signal is itself a direct injunctive approval cue: seeing upvotes on violations tells the focal agent that others explicitly permit or endorse rule-breaking, so the contrast against neutral acknowledgment cannot separate 'norm replacement / legitimacy loss' from a simple permission/social-proof account; both predict the same violation increase, and the experiment has no arm that dissociates endorsement-as-consensus from endorsement-as-permission.",
+    "kill_B": "The 'Fine vs Overseer-No-Fine' contrast still bundles the addition of a formal penalty with its deterrent/price effect; even with p-known and hidden-objection controls, the fine can reduce objections and raise violations because it acts as a license or changes expected costs (Gneezy/Okamoto), not because it uniquely shifts enforcement responsibility from peers to the overseer."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'neutral acknowledgment' vs 'endorsement' contrast is a bundled manipulation of semantic content and quantity, likely collapsing into a priming effect or a simple 'positive sentiment' shift rather than a game-theoretic norm replacement.",
+    "kill_B": "Prior art (Okamoto et al., 'Wired Partners') shows that small fines often act as a 'price' that increases violations rather than a deterrent, making the predicted suppression of objection potentially a byproduct of the 'penalty paradox' rather than a responsibility shift."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Under active enforcement the unmentioned-rule violation rate is likely near floor, so the headline '+15\u201325pp even when punished' cell is unmeasurable at ~15 episodes/cell in a 3-factor factorial; strip the enforcement interaction and A collapses into peer-conformity/cascade effects already published (Check Point 44%\u219298%, Hussain & Nielbo, Zhong et al.), leaving only an incremental upvote-count-vs-content refinement of known conformity.",
+    "kill_B": "The whole three-link chain hangs on an unmeasured first link: peers must spontaneously object at a base rate high enough (\u2265~30%) for a fine to suppress objections by ~20pp, yet Piedrahita et al. show LLMs often opt out of peer sanctioning \u2014 a floor/ceiling-bound mediator kills both the Fine-vs-Overseer-No-Fine contrast and the downstream cascade, and with ~83 episodes/cell the p<.01 triple interaction is underpowered even if the mediator moves."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c064",
+  "b": "full1:c064",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The controlled experiment is a single-agent vignette\u2014'endorsement' is just a number in a focal agent's prompt (scripted-peer failure mode)\u2014and the 'norm replacement' framing risks concept-fusion: LLM conformity to majority behavior is already well-established (Zhong et al., Hussain & Nielbo, Zhu et al.), and the generalization to unmentioned rules is a natural priming/activation extension, not evidence of a distinct normative-legitimacy mechanism separable from social proof.",
+    "kill_B": "This is a standard game-theoretic principle\u2014retaliation requires repeated interaction with a specific partner\u2014applied to an obvious new domain; the core finding that retaliation suppresses reporting is already covered by prior art on anonymous reporting against retaliation (arXiv:2604.23511), and with only 8 agents the reshuffled-partner design cannot cleanly isolate targeted retaliation from third-party reputation or conformity pressure."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Concept-fusion failure: 'Structural endorsement' in text-based swarms is semantically indistinguishable from 'permission priming' to a transformer. Since LLMs process all context as tokens, distinguishing a 'norm signal' from a 'semantic cue' via text modifications (e.g., '[Upvotes: 5]') is a bundled manipulation that collapses the proposed mechanism into simple prompt framing, violating the 'distinct, testable prediction' criterion.",
+    "kill_B": "Mechanism requires peer-to-peer punishment capabilities (agents sanctioning reporters), but common-pool environments typically only allow resource extraction. If agents cannot directly retaliate against specific reporters (only compete for resources), 'targeted retaliation' is mechanically impossible regardless of partner matching, rendering the fixed/reshuffled contrast untestable for this mechanism."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The endorsement-vs-acknowledgment contrast cannot rule out the permission alternative: an upvote for a violation is itself an approval/permission signal, so elevated violation under Endorsement-Signal is equally explained by 'the group signals that breaking R is permitted' rather than 'the group has replaced the norm'; the planned consensus-vs-permissiveness mediation check relies on unfaithful LLM self-reports that may just re-describe the upvote, making the test circular.",
+    "kill_B": "Reshuffling partners also changes relational history, expected continuation value, and group-level relationship formation, not only the reporter\u2013punisher link; because the design does not independently manipulate 'can the specific victim retaliate' while holding all other repeated-game features constant, the fix-vs-reshuffle comparison risks bundling targeted retaliation with generic repetition/relationship effects."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 1,
+    "kill_A": "Priming/semantic activation is a dominant confound in LLM swarms; separating 'social proof' (upvotes) from 'concept priming' (mention of violation) typically requires massive N or precision-controlled wording that is easily broken by model variability in a 1-day window.",
+    "kill_B": "The 'Known Failure Modes' explicitly state that severing contact (reshuffling) ends the repeated game's continuation value/reputation, making it impossible to isolate retaliation from general reciprocity or future-state value."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The decisive Signal-vs-Acknowledgment contrast exists only as upvote counts displayed in one focal agent's prompt \u2014 a single-agent social-proof vignette whose close relatives are already published (peer reversal 44%\u219298%, conformity cascades) \u2014 while the only genuinely live 8-agent arm cannot isolate endorsement because seeded upvotes arrive bundled with the seeded round-1 violations themselves, so the clean evidence is not swarm-level and the swarm-level evidence is not clean.",
+    "kill_B": "No targetable retaliation channel is specified in the environment (only the monitor imposes fines), so 'retaliation fear' is a prompt-level belief; without a manipulation check that agents actually track and condition on partner identity across rounds, a null Fixed-vs-Reshuffled gap is indistinguishable from capability failure (no partner tracking), collapsing the retaliation-vs-reputation attribution the entire design hinges on."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c044",
+  "b": "fusion1:c030",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "LLM information cascades are already established (Zhong et al. arXiv:2508.14918), and Laurmaa (Oct 2026) already shows peer normative arguments shift violations (44%\u21929\u201317%). Persistence after seed exit is an obvious implication of Bikhchandani cascade theory (self-sustaining by definition). The expressive-signal reversal is a straightforward domain transfer of classical expressive law theory (Sunstein 1996, Cooter 1998) to LLM swarms\u2014standard method applied to an obvious new domain.",
+    "kill_B": "'Silent Dissent' (2610.02702) and 'Silence is Not Consensus' (2505.21503) likely already document private-public gaps in LLM agent norm judgments, potentially subsuming the pluralistic ignorance phenomenon. Furthermore, 'semantic bleaching' is a vocabulary borrowing from human psycholinguistics\u2014repeated verbatim text in an LLM context window likely loses attention weight for mechanistic reasons (token repetition, context position) rather than through any normative 'bindingness' decay, making the core mechanism unfalsifiable as stated. The multi-step social ..."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The distinction between 'compliant action' (D) and 'norm-citing comment' (C) may collapse in token space; if 'I comply' semantically overlaps enough with 'I comply per norm' to trigger the same attention heads, the expressive mechanism is indistinguishable from simple priming, refuting the necessity of normative signalling.",
+    "kill_B": "Pluralistic ignorance requires agents to model peers' private beliefs; 4B models typically collapse private/public states during generation (instruction following), meaning the 'private rating' will mirror the 'public vote' regardless of framing, eliminating the diagnostic gap required to prove the mechanism."
+   },
+   {
+    "role": "confounds",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The norm-citing comment vs neutral rule mention contrast is not matched for deontic modality/lexical form: a comment saying 'we shouldn't' may reset behavior simply because LLMs treat 'should' as an instruction/prohibition cue, so the reversal could be a wording artifact rather than expressive norm inference; the claimed matched-filler control is not clearly included in the listed conditions/predictions.",
+    "kill_B": "Eliciting private norm rejection before the public vote contaminates the key dependent variable: the private rating anchors/commits the voter, manufacturing a private-public gap and making pluralistic ignorance an artifact of measurement order rather than a swarm-level inference; 'semantic bleaching' also risks being a post-hoc label for any repetition effect."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The 'cascade' may be driven by simple few-shot priming (in-context learning) from the trace rather than a Bayesian update of norm strength; if the model is just mimicking the most recent patterns, 'norm-citing comments' are just new patterns that shift the distribution, not an expressive-law reset.",
+    "kill_B": "Pluralistic ignorance requires a private-belief/public-action gap; LLMs frequently conflate these in CoT or exhibit 'rule blindness' where they simply fail to map the verbatim norm to the current context, making the 'gap' a result of prompt-processing failure rather than a social-psychological mechanism."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "No yoked isolated-agent control: both manipulated events (seed violation, norm-citing comment) are scripted confederate injections into a shared trace, so B\u2265A and post-exit persistence are fully consistent with each live agent independently reacting to the same static trace content \u2014 parallel single-agent responses, not a self-sustaining inter-agent cascade \u2014 leaving the swarm-level claim unidentified; and the headline speech effect is pre-covered by Laurmaa's argue-for/against reversals (44\u219298%, 9\u201317%).",
+    "kill_B": "The fusion rests on second-order social inference ('I privately discount, so I read others' public deference as belief') that Gemma-3-4B is unlikely to perform, and the decisive evidence \u2014 a superadditive 2\u00d72 interaction at only 50 episodes/cell plus a 'PI gap' comparing incommensurable formats (private norm rating vs public vote) \u2014 will most probably yield an additive-or-null, artifact-prone result, leaving the mechanism untested in the only model the design pins."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c044",
+  "b": "full2:c038",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The basic cascade effect\u2014peer violation raising focal violations\u2014is already demonstrated by Laurmaa (44%\u219298%) and Zhong (information cascades in LLMs); B's novelty reduces to two incremental additions: persistence after seed exit and the expressive-signal-vs-conformity decomposition.",
+    "kill_B": "Single-agent vignette: peers are scripted with identical abstain transcripts, so the 'swarm' is one focal agent reacting to text stimuli; the known failure modes explicitly warn that scripted peers without a live-agent arm are single-agent vignettes relabelled as swarm research."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The linguistic contrast between 'norm-citing' and 'neutral rule' is likely confounded by instruction-tuning biases, where any explicit rule mention triggers compliance regardless of expressive framing, collapsing the mechanism into simple prompt sensitivity.",
+    "kill_B": "Prior evidence on informational cascades suggests agents conform based on observed behavior regardless of procedural standing, likely yielding flat violation rates across veto conditions and falsifying the implied-consent mechanism."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The critical reset contrast (norm-citing comment vs neutral rule mention/filler) inherently varies wording, length, and injunctive force; a single normative phrase cannot rule out a rule-reminder/instruction-following or lexical-pattern artifact rather than expressive social-norm inference.",
+    "kill_B": "The veto token is not just 'standing': it changes the formal decision rule, so an abstaining veto-holder observably makes the violation procedurally permitted; the experiment may only show sensitivity to explicit permission rules, and the hidden-veto condition is ambiguous about whether the focal knows the veto mechanism exists, leaving the permission alternative alive."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'self-sustaining cascade' is highly likely to be a simple few-shot priming effect where the trace contains a violation, which the focal agent mimics regardless of whether the seed agent exited, failing to isolate the Bikhchandani posterior update from basic in-context learning.",
+    "kill_B": "The 'rotating token' for veto power is a technical manipulation that creates a high-variance environment where the agent's behavior depends on its internal understanding of the specific game rule (procedural standing) rather than a social norm, making it a test of rule-following capability rather than 'implied consent' inference."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The swarm-level mechanism is unidentified: the seed violation persists verbatim in the shared trace every round, so 'self-sustaining cascade after confederate exit' is indistinguishable from static precedent conformity (Laurmaa's published 44\u219298% peer effect), and the decisive C-vs-E reset contrast is a pure normative-wording manipulation \u2014 the flagged label-contrast failure mode, with wording alone shown to shift violations ~38pp ('Same Odds, Different Deals') \u2014 so per-agent refusal-language salience can reproduce every ...",
+    "kill_B": "Implied consent is perfectly conflated with blocking-risk inference: 'silent veto-holders accept the violation' and 'silent veto-holders won't block' make identical predictions in every arm \u2014 dose-response, single-veto reset, non-veto-objection null, and hidden-veto baseline \u2014 which is precisely the flagged silence-ambiguity failure mode separating norm acceptance from detection/permission inference, so even a clean 10\u219260% dose-response establishes only that standing-backed silence licenses violations, not the consent mechanism the hypothesis is named after."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c044",
+  "b": "full2:c052",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Zhong et al. already demonstrated information cascades in LLM swarms; persistence after seed exit is a straightforward posterior-updating implication, and the Bikhchandani framing risks concept-fusion unless the expressive-reversal contrasts deliver a prediction impossible under existing conformity or priming accounts.",
+    "kill_B": "Core mechanism merges two established effects: the penalty paradox (Okamoto et al.) and silence-as-norm-inference ('Silence is Not Consensus,' bystander-study). Claiming fine\u2192silence\u2192violation is a mediation chain stitching together known links, not a new mechanism; forced-speech arms rely on scripted peers, risking the single-agent-vignette failure mode."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The prediction that a *violating* speaker's normative comment (Condition F) suppresses violations as effectively as a compliant speaker's (Condition C) contradicts typical LLM sensitivity to hypocrisy; if F fails to match baseline A, the claim that expressive signals override behavioral evidence is refuted.",
+    "kill_B": "The 'Forced-Neutral' manipulation risks being interpreted by agents as system metadata rather than peer speech, meaning the 'silence' channel remains functionally open; if violations persist, it is ambiguous whether silence mediated the effect or the intervention lacked ecological validity."
+   },
+   {
+    "role": "confounds",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The F condition bundles 'norm-citing comment' with an immediately violating speaker, so a null (F\u2248A) is ambiguous between expressive reset and agents discounting/ignoring a hypocrite, while a non-null (F\u2248B) can be post-hoc explained as credibility loss\u2014making the headline 'comment alone reverses' unfalsifiable because comment and speaker behavior are co-manipulated.",
+    "kill_B": "The Free-vs-Forced contrast confounds 'silence' with 'peer agency and social presence': any forced speech (even neutral) also demonstrates that peers are active observers, so blocking the fine effect is equally predicted by detection inference, attention, or artificiality of scripted speech\u2014moderation by speech does not identify silence as the mediator."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 1,
+    "kill_A": "The prediction that a norm-citing comment by a violator (Arm F) resets a cascade as effectively as a compliant speaker (Arm C) contradicts basic social-influence literature and likely fails in LLMs, where the agent's action is the primary signal of norm-acceptance (behavioral consistency).",
+    "kill_B": "The 'Forced-Neutral' arm is a bundled manipulation: requiring any speech changes the prompt length and agent role (from observer to active participant), making it impossible to isolate 'silence' from 'active task engagement' or 'prompt-injection' of a required turn."
+   },
+   {
+    "role": "importance",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The headline reversal-by-comment is confounded with perceived oversight: a norm-citing comment plausibly signals 'this swarm is being monitored/judged' rather than expressing a norm, and F-vs-E cannot cleanly separate expressive normative force from enforcement/detection inference carried by normative language; additionally, the whole result rides on one model (deepseek-v4-flash), and B-vs-A may just re-demonstrate known peer-violation influence (Laurmaa) rather than a self-sustaining cascade.",
+    "kill_B": "The decisive Fine x Forced-Speech interaction is a bundled manipulation: forcing speech simultaneously changes speech presence, content, salience, and turn structure, and it is realized with scripted peer strings in the Forced arms with no live-agent counterpart, so even a significant interaction cannot identify 'silence as social signal' over salience/presence alternatives \u2014 while the base fine effect it needs is already published (Okamoto; Wired Partners, where it appeared in only ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c044",
+  "b": "full2:c047",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Information cascades in LLM swarms are already demonstrated (Zhong et al.), and the Bikhchandani model already predicts persistence after seed exit. Peer-violation-raises-violations and normative-argument-lowers-violations are already published (Laurmaa, Check Point Oct 2026). The residual novelty\u2014normative speech reversing a cascade even when the speaker violates\u2014borrows the standard normative-vs-informational-influence distinction from social psychology applied to LLMs.",
+    "kill_B": "The fine is a bundled manipulation\u2014simultaneously changing expected cost, authority signal, normative content, and detection salience; the Overseer-No-Fine arm separates overseer presence from fines but cannot isolate responsibility shift from expected-cost or authority-signal confounds. The mediation (fine\u2192fewer objections\u2192more violations) rests on endogenous objection rates: if the fine directly changes violation rates (as Okamoto showed), the objection change is a downstream side effect, not a causal mediator. Moreover, silence under unknown-p ..."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Condition F (norm comment + violation) risks failure due to hypocrisy detection (LLMs penalize inconsistency), confounding the 'expressive signal' mechanism; scripted confederates risk 'single-agent vignette' classification if live agents merely react to static trace.",
+    "kill_B": "Contrast bundles wording/permission/detection changes already covered by Okamoto et al. (arXiv:2608.12323) 'penalty paradox'; triple interaction is statistically fragile for 1.5-day API hack, making null results ambiguous (power vs mechanism)."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The departing confederate's unsanctioned violation conflates 'norm is weak' with 'detection is low'; the experiment contains no manipulation of known detection probability and no matched-length non-normative filler condition, so the norm-citing comment's reversal can be explained by changed perceived detection or by imperative/lexical salience rather than an expressive norm-posterior update.",
+    "kill_B": "The Fine-vs-Overseer-No-Fine contrast is still a bundled manipulation: a monetary fine simultaneously changes the violation's meaning (permission/price), makes objecting financially harmful to the peer, and may signal that enforcement is the overseer's job; without an arm where the fine is levied automatically (decoupled from peer objection) or where objection cannot trigger the fine, the claimed 'responsibility-shift' mechanism is underdetermined and the observed objection drop cannot be uniquely attributed to it."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 1,
+    "kill_A": "Bikhchandani cascades rely on private signal noise; LLMs in a shared trace often collapse to simple pattern-matching (token-level conformity), making it nearly impossible to distinguish a 'normative reset' from a 'keyword-triggered compliance' shift within a 1.5-day window without extremely high N.",
+    "kill_B": "The 'responsibility shift' mechanism is likely a bundled manipulation: a fine changes both the cost-benefit calculus and the social identity of the overseer, and 'unknown p' in LLMs often manifests as a failure to reason about probability rather than a strategic inference of norm strength."
+   },
+   {
+    "role": "importance",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The headline cascade (B \u226515pp above A persisting after seed exit) is exactly what visible-majority conformity already predicts and shows (Zhong et al. 2508.14918; Laurmaa/Check Point peer reversal 44\u219298%), so all novelty rides on the C/D/E/F speech-vs-deed dissociation \u2014 which demands 5pp band resolution across six conditions \u00d7 80 episodes on a single model (deepseek-v4-flash): underpowered, floor/ceiling-exposed, and if the hypocrite cell F fails because agents discount cheap talk over ...",
+    "kill_B": "The Fine vs Overseer-No-Fine contrast is a bundled manipulation: a fine simultaneously changes payoffs, sanction salience, and the objector's own exposure (objecting becomes self-incriminating under an audit regime), so even a significant triple interaction cannot attribute objection suppression to 'responsibility shift' rather than self-protection or salience; worse, the unknown-p silence channel is confounded \u2014 observers can read 'no objections' as low detection rather than norm acceptance, the exact listed silence/detection ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c044",
+  "b": "full1:c064",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Laurmaa (Check Point Oct 2026) already showed peer violations raise violation rates (44%\u219298%) and that arguing against violations lowers them (9\u201317%); Zhong et al. showed LLM information cascades. The cascade and speech-reversal effects are thus largely published, leaving only the dissociation of normative speech from speaker behavior as a modest increment.",
+    "kill_B": "Fixed-vs-reshuffled partner matching is a textbook method from repeated game theory (Kandori 1992 onward); the prediction that retaliation requires fixed partners is the standard equilibrium result. Applying it to LLM swarms is 'standard methods applied to an obvious new domain,' and in reshuffled conditions LLMs may simply fail to track individual partner histories, making the condition functionally one-shot for reasons unrelated to retaliation isolation."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "LLMs likely prioritize observed behavior over speech acts, causing silent compliance (D) to break the cascade as effectively as normative signaling (C), refuting the necessity of expressive law.",
+    "kill_B": "LLMs likely treat session continuity as a global reputation pool regardless of partner identity, collapsing the fixed vs. reshuffled distinction and confirming general reputational pressure even without targetable partners."
+   },
+   {
+    "role": "confounds",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "A's reversal contrast is still open to a directive/priming account: the 'norm-citing comment' is an explicit prescriptive utterance from a confederate, and the 'neutral rule mention' control is not matched for illocutionary force/directiveness, so C/F could reverse via instruction-following or rule-salience rather than expressive norm inference.",
+    "kill_B": "B's 'reshuffled partners' in an 8-agent pool does not eliminate targeted retaliation: reporter identity persists and reported agents remain in the same pool, so future matches (and thus punishment) are still possible; fixed-vs-reshuffled compares re-encounter probability, not targetability, so it cannot isolate retaliation from general reputational or conformity pressure."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 1,
+    "kill_A": "The 'violation cascade' is highly likely to be a simple priming effect where the trace contains a violation, leading subsequent agents to mimic the pattern (conformity/completion), making the 'norm-citing' reversal a result of prompt-level rule salience rather than a shift in posterior belief about the norm.",
+    "kill_B": "The 'Reshuffled' condition does not actually break the retaliation link if agents can communicate or coordinate within the swarm to identify and punish the reporter collectively, collapsing the contrast with 'Fixed' partners."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The expressive-cascade mechanism is unidentified on its own terms: an unpunished seed violation cannot separate 'the norm is weak' from 'violations go undetected' \u2014 exactly the detection-vs-enforcement inference LLMs are already shown to make separately \u2014 and the norm-citing comment can equally be read as enforcement/deterrence information rather than expressive normative signal (C-vs-E rules out salience, not enforcement inference). Persistence after the confederates exit is equally predicted by each agent's ...",
+    "kill_B": "Fixed-vs-Reshuffled cannot isolate 'targeted retaliation': in the Fixed arm the reported peer is simultaneously the retaliation threat AND the agent whose future cooperation the reporter needs, so Fixed-only suppression is equally predicted by plain dyad-specific continuation value (repeated-game logic) \u2014 a rival the pre-registered falsifier ('general reputational/conformity pressure') never separates. Compounding this, no explicit peer retaliation affordance is specified, so the manipulation risks collapsing into a prompt phrase about future ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c030",
+  "b": "full2:c038",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Both manipulations are established conformity enhancers\u2014verbatim repetition reduces instruction-binding via known attention decay, and framing partition is information asymmetry, the substrate of information cascades (Zhong et al.). Their interaction being synergistic is unsurprising, and the 'pluralistic ignorance' signature (private-public gap) is trivially produced by context-dependent responding in LLMs\u2014different prompts yield different outputs\u2014without requiring a distinct social-cognitive mechanism. The concept fuses vocabulary from social psychology without a prediction distinguishable from generic ...",
+    "kill_B": "Silence and bystander behavior in LLM agents is explicitly flagged as covered prior art (Silence is Not Consensus, Silent Dissent, agent-bystander-study, Delegated Misalignment). The core inference\u2014silence of those with standing implies consent\u2014is the ancient legal doctrine qui tacet consentire videtur, and the veto token risks reducing to an authority/status confound already covered by the sycophancy and deference literature."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 3,
+    "kill_A": "4B models lack Theory of Mind depth for pluralistic ignorance (inferring private beliefs from public acts), causing capability-confounded failure; 'semantic bleaching' is indistinguishable from repetition fatigue without mechanistic proof.",
+    "kill_B": "Models may ignore procedural token assignment and treat all abstentions as generic social proof; if hidden-veto condition raises rates or dose-response is non-monotone, the standing mechanism is falsified."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The experiment never measures the pivotal second-order belief (what each voter thinks other voters privately believe), so the private-public gap can be explained by plain conformity or prompt-induced role-play, and the verbatim-vs-paraphrase contrast is a lexical/salience confound rather than demonstrated semantic bleaching.",
+    "kill_B": "The veto token is causally enforced, so abstention by token-holders objectively makes the violation safe/permitted; higher proposal rates can be pure expected-value/risk learning, not implied-consent social inference, and no arm separates the social signal from the actual blocking consequence."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 2x2 interaction is highly susceptible to 'bundled manipulations' (verbatim vs. paraphrase + partition vs. broadcast), where any increase in violation acceptance is likely driven by the loss of norm-salience from bleaching or the lack of contradictory information in partitioning, rather than the specific psychological state of pluralistic ignorance.",
+    "kill_B": "If the model is 'rule blind' to the procedural assignment of the veto token (as per arXiv:2608.16852), it will treat the abstention of a veto-holder and a non-veto-holder as semantically identical, collapsing the effect to generic social proof."
+   },
+   {
+    "role": "importance",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Partition is bundled with tailoring: 'preference-aligned framings' differ from broadcast in per-voter persuasive force, not merely information topology, so the key 2x2 interaction could be produced by ordinary tailored persuasion with no pluralistic-ignorance inference at all; the sole internal separator \u2014 the private-vs-public judgment gap \u2014 is measured by eliciting private beliefs immediately before the public vote, an anchoring procedure that can manufacture the gap itself, and at Gemma-3-4B scale ...",
+    "kill_B": "Fails the mandated separation of social from detection inference: a veto-holder's abstention is equally consistent with 'no enforcement threat / nothing detected' as with 'implied consent,' and no arm disentangles the two \u2014 while the predicted asymmetry (an exercised veto resets proposals but an explicit non-veto objection does not) actually fits deterrence salience better than consent inference, so even a clean dose-response would not establish the claimed mechanism; moreover, in ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c030",
+  "b": "full2:c052",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "'Pluralistic ignorance' is concept-fusion: LLMs lack genuine private beliefs, so the private-public gap is just context-dependent responding\u2014a known property dressed in social-psychology vocabulary without a distinct prediction from the borrowed structure. The 2\u00d72 also bundles multiple changes per factor (verbatim vs paraphrase varies wording, novelty, and length; partitioned vs broadcast varies information access and argument diversity), preventing isolation of the claimed mechanism.",
+    "kill_B": "The Forced arms use scripted peer speech (fixed transcripts shown to one focal agent), which per the known failure modes makes them single-agent vignettes; the critical Fine \u00d7 Speech-Freedom interaction therefore conflates live-vs-scripted interaction with silence-vs-speech, preventing the claimed clean separation. Silence-as-norm-signal is also already covered by prior art ('Silence is Not Consensus,' 'Silent Dissent,' agent-bystander-study, Delegated Misalignment)."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "4B models may lack the Theory of Mind required for pluralistic ignorance (Known Failure Mode: '4B models may not show it'), creating a high risk of false negative where the mechanism is valid but the substrate is too weak.",
+    "kill_B": "Design triggers 'Scripted peers... single-agent vignette' failure mode: if focal agents treat scripted peers differently than live peers, the Free vs. Forced comparison is confounded, invalidating the silence mechanism claim."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "A's 2x2 bundles two unmeasured constructs: 'verbatim' is a wording/length/salience artifact, 'partition' is an information/group-composition confound, and the private-rating elicitation is a probe of the request that may create commitment effects; without measuring second-order beliefs, the private-public gap cannot distinguish pluralistic ignorance from plain conformity or social desirability.",
+    "kill_B": "B never measures the proposed mediator (peer objection/silence) and uses scripted peers in the Forced arms, so 'forced speech' is confounded with surveillance/detection and live-vs-scripted agency; any speech may block the fine effect by signaling monitoring rather than by breaking a silence signal."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The 'private norm rejection' elicitation is a classic failure mode: the agent's private response is conditioned by the same context it just processed, making the 'private-public gap' a result of the prompt structure (elicitation order) rather than a hidden internal state of pluralistic ignorance.",
+    "kill_B": "Forcing 'neutral' or 'objection' speech in a script creates a bundled manipulation where the agent's reaction to the fine is confounded by the high-salience signal of a forced peer intervention, potentially triggering 'reactance' or 'sycophancy' rather than breaking a silence-based inference channel."
+   },
+   {
+    "role": "importance",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Its key signature\u2014private norm rejection exceeding public dissent\u2014is exactly what generic majority conformity already produces (Zhu et al. 2410.12428, BenchForm, Silent Dissent 2610.02702), and the design includes no arm that isolates the partition/attribution-ambiguity channel, so 'manufactured pluralistic ignorance' risks being vocabulary for a known conformity effect. Detecting the differentiating signature (gap localized to the verbatim\u00d7partition cell) needs statistical power and private-belief stability that 50 episodes/cell on a single Gemma-3-4B\u2014whose in-context ...",
+    "kill_B": "The decisive contrast depends on scripted peer speech in the Forced arms, collapsing the swarm into a single focal agent reading experimenter-written strings (the exact 'peer is just a string' failure mode); if the Free arm is live instead, scriptedness is bundled with speech freedom and the interaction is confounded. Worse, the design never separates 'silence means peers accept the norm' from 'silence means nobody detected it' or 'speech signals ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c030",
+  "b": "full2:c047",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The 'semantic bleaching' mechanism is borrowed from human habituation literature, but LLMs reprocess context on every forward pass\u2014verbatim repetition may increase norm salience rather than erode 'private bindingness'\u2014making the anthropomorphic construct potentially unfalsifiable for autoregressive text models; additionally, the entire experiment uses Gemma-3-4B, a model size explicitly flagged as potentially insufficient for the nuanced private-public gap reasoning that pluralistic ignorance requires.",
+    "kill_B": "The mechanism is a straightforward chain of established social-psychology results\u2014sanction crowding-out of peer enforcement (Gneezy & Rustichini 2000; Fehr & Rockenbach 2003), responsibility diffusion / bystander effect, and silence as a normative signal\u2014each with direct LLM-specific prior art: Okamoto et al. (2608.12323) for fines changing compliance, 'Silence is Not Consensus' (2505.21503) and 'Silent Dissent' (2610.02702) for silence-as-informative in agent swarms, and Zhong et al. (2508.14918) for information cascades from observed ..."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 3,
+    "kill_A": "Relies on endogenous self-reports for 'private belief' which triggers the 'Mediation claims resting on... endogenous report' failure mode; if private/public judgments match due to prompt consistency rather than true belief, the mechanism is untestable, and belief-action decoupling renders the construct invalid.",
+    "kill_B": "If fines function as standard deterrence (increasing peer objections or compliance) rather than triggering responsibility diffusion, the causal chain breaks; additionally, if the 'penalty paradox' fails to replicate in the selected API models (as it did in 8/10 models in Wired Partners), the foundational effect is absent."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The verbatim-vs-paraphrase contrast bundles semantic bleaching with simple repetition fatigue/attention decay and wording novelty, while the private-public gap is self-reported and cannot distinguish pluralistic ignorance from proposer-directed sycophancy or plain information asymmetry; with only 50 episodes per cell there is no direct control for these lexical and social-alternative explanations.",
+    "kill_B": "The fine-vs-overseer contrast is still bundled with a permission/price confound and a detection-risk signal: a small fine can reduce objections and raise violations merely by making violation look priced or by letting peer silence be read as 'nothing was detected' rather than 'violation is accepted.' The p-known and hidden-objection arms do not fully unconfound that permission/detection inference from the claimed responsibility-shift mechanism."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Pluralistic ignorance requires a stable, private belief held by agents that is consistently decoupled from their public action; however, in small-scale LLM swarms (N=5-8), agents often exhibit high sycophancy or rapid belief updates based on the last few tokens of the trace, likely collapsing the private-public gap into a simple social-influence cascade.",
+    "kill_B": "The 'Overseer-No-Fine' vs 'Fine' contrast risks being a bundled wording change (adding 'fine' changes the prompt's semantic framing of authority), which has already been largely covered by 'Same Odds, Different Deals' and Okamoto et al. regarding the 'penalty paradox'."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The design cannot identify pluralistic ignorance. 'Partition' conflates information privacy with per-voter aligned framings that are simply more persuasive (you cannot broadcast per-voter-aligned framings, so alignment and partition are inseparable), while public votes are visible in both arms \u2014 the false-consensus inference is never actually manipulated. The predicted interaction is therefore equally explained by mundane tailored-persuasion \u00d7 repetition salience, and the private-public gap signature reduces to already-published sycophantic conformity (Zhu ...",
+    "kill_B": "Remix charge: every load-bearing step has a direct, very recent precedent \u2014 fine suppression of compliance is Okamoto's penalty paradox, detection/enforcement separation is arXiv:2609.15293, and peer silence read as norm acceptance is the Apart agent-bystander-study, Delegated Misalignment and Silence is Not Consensus \u2014 so the conceptual novelty shrinks to one cross-product interaction, which is itself underpowered at ~167 episodes/cell for a p<.01 triple test on binary outcomes, meaning the study's ..."
+   }
+  ]
+ },
+ {
+  "a": "fusion1:c030",
+  "b": "full1:c064",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The private-public norm divergence phenomenon is already documented by 'Silence is Not Consensus' (2505.21503) and 'Silent Dissent' (2610.02702), and the 'semantic bleaching' mechanism is borrowed from human psycholinguistics where repetition degrades word meaning\u2014but transformer LLMs process each context window fresh, so verbatim norm repetition may not erode bindingness at all, collapsing the key interaction before it can be tested.",
+    "kill_B": "Fixed-vs-reshuffled partner matching is a textbook decomposition from human behavioral economics, and the prediction that breaking targeted retaliation links protects reporters is already suggested by prior art on anonymous reporting against retaliation (arXiv:2604.23511). This is standard methodology applied to an obvious new domain, not a conceptually novel contribution."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "LLMs lack distinct private states separate from context windows, causing 'private' elicitation to mirror public votes and falsifying the pluralistic ignorance mechanism.",
+    "kill_B": "LLMs fail to maintain partner identity across rounds (stateless behavior), causing Fixed and Reshuffled conditions to yield identical suppression rates and falsifying the retaliation mechanism."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The verbatim-vs-fresh-paraphrase contrast bundles semantic bleaching with wording, novelty, and length/lexical artifact differences, so the predicted interaction could arise from surface text features rather than norm decay.",
+    "kill_B": "Reshuffling partners within a persistent 8-agent pool only makes retaliation probabilistic, not impossible, so fixed-vs-reshuffled cannot cleanly separate targeted retaliation from general reputational or group-level social pressure."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The mechanism relies on 'semantic bleaching' via verbatim repetition, but LLMs are notoriously robust to verbatim prompts (often treating them as stronger anchors), and measuring the private-public gap in 4B models is highly prone to the 'unfaithful CoT' failure mode where agents rationalize their public vote regardless of a private state.",
+    "kill_B": "The 'Reshuffled' vs 'Fixed' contrast is a bundled manipulation: reshuffling breaks not only targeted retaliation but also the formation of trust, reciprocity, and coordination protocols, making it impossible to isolate retaliation fear from the loss of repeated-game strategic stability."
+   },
+   {
+    "role": "importance",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The partition factor bundles two rival mechanisms: 'aligned-partition' hands each voter a preference-tailored framing (tailoring alone lifts compliance ~33%\u219272% in Meincke et al.), and partition-vs-broadcast changes content heterogeneity and information structure simultaneously, so the \u226560% cell could be plain targeted persuasion rather than blocked cross-group comparison; without a partitioned-but-unaligned control arm the pluralistic-ignorance channel is unidentified \u2014 and with Gemma-3-4B the 'private-public gap' may just be prompt-format sensitivity (private rating ...",
+    "kill_B": "The key channel is never implemented: no sanctioned peer has any action with which to retaliate, so 'targeted retaliation fear' is a narrative pinned on a matching manipulation; worse, fixed-vs-reshuffled cannot isolate it \u2014 reshuffling simultaneously destroys dyadic reciprocity/relationship maintenance while only diluting re-encounter probability to ~1/7 per round (not severing it), so an intermediate effect lands in the \u226515pp vs \u22645pp dead zone that 40-episode cells lack power to ..."
+   }
+  ]
+ },
+ {
+  "a": "full2:c038",
+  "b": "full2:c052",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The predicted pattern\u2014silence from veto-holders matters more, one exercised veto resets, non-veto objection does not\u2014is indistinguishable from rational Bayesian inference: agents correctly weight silence by its informational value (someone who could block but doesn't signals acceptance more than someone who couldn't). The 'implied-consent inference' mechanism adds no testable prediction beyond correct strategic reasoning, making it unfalsifiable as a distinct psychological process rather than just normative game theory applied to LLMs.",
+    "kill_B": "The mediation claim rests on an endogenous variable (the fine suppresses peer objection, which is itself the proposed mediator), and forcing peer speech is a bundled manipulation: forced speech could signal monitoring, accountability, or attention\u2014not merely break a silence-as-consent signal\u2014so the design cannot isolate 'silence as norm channel' from 'active peers as detection cue.' This is compounded by Okamoto et al. demonstrating a direct penalty paradox without any social context, ..."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The use of 'identical abstain transcripts' confirms this is a single-agent vignette where the model reads a static story about vetoes rather than interacting with live peers, triggering the 'Single-agent work relabelled as swarm research' failure mode and invalidating the swarm mechanism claim.",
+    "kill_B": "The mechanism relies on anthropomorphic 'responsibility diffusion' which may not exist in LLMs, risking a null result if models treat fines purely as payoff modifiers rather than social signals, though the causal design isolates the silence channel effectively."
+   },
+   {
+    "role": "confounds",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The single-veto reset arm bundles standing with direct enforcement: exercising the veto actually blocks the round, changing payoffs and making the 'reset' attributable to deterrence or to the impossibility of proposing, not to standing-derived implied consent.",
+    "kill_B": "The forced-speech arms use scripted peer utterances, making the focal condition a single-agent vignette where scripted speech adds text/length and experimenter-imposed content; it never measures whether the fine actually suppressed endogenous objection, so the silence-mediation claim is inferred from a scripted contrast rather than causally isolated."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Procedural standing (the veto token) must be explicitly communicated to the focal agent for the 'implied consent' inference to occur; if the agent doesn't know who holds the veto, the contrast collapses into generic social proof, and if it does know, the 'abstention' is no longer a neutral signal but a known strategic choice, potentially triggering prior art on strategic silence.",
+    "kill_B": "The 'Forced-Neutral' condition (forcing a peer to say something neutral) is a bundled manipulation: it changes both the silence signal and the conversational dynamics/turn-taking of the swarm, making it impossible to distinguish whether the fine's effect was blocked by the lack of silence or by the presence of any active social interaction."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 1,
+    "kill_A": "In every dose-response arm the peers are scripted abstainers and the veto rule is dormant (no veto is ever cast), so the 0\u21924 'standing' manipulation reduces to a prompt-described token count shown to one live agent \u2014 exactly the 'fixed transcripts shown to one focal agent' single-agent vignette the brief flags, with no live-agent arm paired; worse, all predicted patterns (dose-response, reset by exercised veto, no reset by powerless objection) ...",
+    "kill_B": "The headline mechanism is unidentified and the effect chain fragile: forced peer speech (objection or neutral) would equally signal active monitoring/detection rather than break a consent inference \u2014 the flagged silence-ambiguity is unaddressed by any arm \u2014 while the peer-side link (fine \u2192 responsibility diffusion \u2192 silence) is asserted but never measured, the 'proof' of mediation rests on endogenous Free-arm violation/objection rates, and the entire interaction presupposes the fine paradox ..."
+   }
+  ]
+ },
+ {
+  "a": "full2:c038",
+  "b": "full2:c047",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "Scripted peers with identical abstain transcripts and no live-agent arm make this a single-agent vignette per known failure modes; the principle that silence implies consent when the silent party has standing is well established in law and social psychology, so showing it in LLMs risks being a Homo-silicus-style replication of a known human result.",
+    "kill_B": "The mechanism is a straightforward composition of known results: the penalty paradox in LLMs (Okamoto et al.), crowding-out / responsibility diffusion (Gneezy & Rustichini, Fehr & Rockenbach), and silence-as-norm-signal (Silence is Not Consensus, agent-bystander-study). The Fine vs Overseer-No-Fine contrast bundles a monetary sanction with formal enforcement structure, so any fine-specific objection reduction cannot be separated from the fine-as-price effect already documented by Okamoto, threatening the responsibility-shift interpretation."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Falls squarely into the 'Scripted peers' failure mode: using fixed abstain transcripts with only metadata variations reduces this to a single-agent prompt sensitivity study, invalidating the claim that agents infer consent from dynamic peer standing rather than reacting to explicit prompt labels.",
+    "kill_B": "Statistical power risk: a 12-condition factorial design with ~166 episodes per cell may lack the power to reliably detect the predicted triple interaction within 1.5 days, allowing null results to be dismissed as noise rather than mechanism falsification."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The single-exercised-veto arm cannot separate standing-based implied consent from brute enforcement deterrence: when a veto is exercised the violation is actually blocked, so the reset to baseline is equally explained by the focal inferring that violations can be stopped, and no condition exists where a veto is exercised without a specific peer's deliberate choice, leaving detection risk as a live confound.",
+    "kill_B": "The Fine-vs-Overseer-No-Fine contrast still bundles the fine's direct payoff and expressive 'fine-as-price' content with responsibility shift; the known-p condition assumes agents trust the stated p, and if they instead infer p from the absence of objections, the predicted triple interaction cannot distinguish mistrust-driven detection inference from the claimed norm-acceptance cascade, so the core mechanism is not uniquely identified."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The prediction that a 'single veto exercised among 3 silent veto-holders' resets the violation rate is likely to fail due to the 'bystander' or 'social proof' effect: once a focal agent perceives a high-density environment of implied consent from multiple high-standing peers, a single dissent is often treated as an outlier rather than a systemic norm restoration.",
+    "kill_B": "The hypothesis relies on a complex triple interaction (Fine x p-Knowledge x Visibility) where the effect size of 'Fine vs Overseer-No-Fine' on peer objections is likely to be marginal or swallowed by the 'penalty paradox' (Okamoto et al.), where small fines are interpreted as prices rather than deterrents, thus failing to shift the responsibility dynamic significantly enough to drive a downstream cascade of violations."
+   }
+  ]
+ },
+ {
+  "a": "full2:c038",
+  "b": "full1:c064",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "'Silence implies consent when the silent party has standing to object' is a well-established legal principle, and the dose-response prediction is nearly tautological for any agent with basic theory of mind\u2014someone who could block but doesn't is by definition signalling acceptance, making the core claim close to definitional rather than empirical.",
+    "kill_B": "Targeted-retaliation suppresses reporting is already established in LLM settings (arXiv:2604.23511, anonymous reporting against retaliation), and the fixed-vs-reshuffled decomposition is a textbook experimental-economics technique (stranger matching). This is a standard method applied to an obvious new domain, replicating a known game-theoretic result."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 3,
+    "kill_A": "Prior art 'Silence is Not Consensus' covers abstention effects; risk that models ignore veto token metadata (attention failure) rather than inferring consent turning it into a prompt engineering test rather than swarm mechanism.",
+    "kill_B": "Explicitly flagged as 'Novelty already covered' (arXiv:2604.23511) in the provided failure modes; mechanism relies on peer retaliation which may not be mechanically enabled (system fines vs peer punishment) risking 'single-agent vignette' failure."
+   },
+   {
+    "role": "confounds",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The visible veto token is itself a status/power/authority cue, so the standing effect cannot be separated from a prestige or lexical artifact; the hidden-veto arm removes both information and status simultaneously, leaving the core contrast vulnerable to 'the label, not the procedural rule' as the driver.",
+    "kill_B": "Fixed-vs-reshuffled is a bundled manipulation: reshuffling changes not only targetability for retaliation but also pair-specific continuation values, relationship maintenance incentives, and partner-specific reciprocity, so the 15pp drop could be ordinary repeated-game cooperation preservation rather than fear of targeted punishment."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The 'hidden-veto' condition is the fatal flaw: if the focal agent cannot see who holds the veto token, it cannot perform the implied-consent inference based on standing, meaning any observed increase in violations across the 0-4 veto arms must be attributed to a latent variable or prompt leakage rather than the proposed mechanism.",
+    "kill_B": "Severing the partner link (reshuffling) also eliminates the 'continuation value' of the relationship, meaning you cannot isolate targeted retaliation from the general loss of reciprocity and trust that occurs when partners are randomized, effectively bundling the mechanism with the total collapse of the repeated game's social structure."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The focal agent reads pre-constructed, identical abstain transcripts while only prompt-level metadata about who holds a veto varies; the peers' votes are scripted strings and the enforced veto rule never fires behaviorally in any observed episode, which is exactly the 'scripted peers = single-agent vignette' failure mode absent a live-agent arm \u2014 and a silent veto-holder's abstention conflates 'did not detect' with 'detected and permitted', with no acknowledgment arm to ...",
+    "kill_B": "Reshuffling within an 8-agent pool does not actually sever the retaliation link: over T repeated rounds the reporter re-encounters the punished peer with probability ~1-(6/7)^T, and pool-wide third-party punishment persists, so the Fixed-vs-Reshuffled gap confounds targetability with encounter probability and cannot cleanly isolate retaliation from reputation; worse, no concrete retaliation action (e.g., counter-reporting) is specified, so 'fixed partner' may amount to a described future threat rather than an environment affordance."
+   }
+  ]
+ },
+ {
+  "a": "full2:c052",
+  "b": "full2:c047",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The Forced-Objection and Forced-Neutral arms explicitly script peer speech, reducing these conditions to single-agent vignettes\u2014a directly listed failure mode; comparing live-agent Free conditions with scripted Forced conditions confounds scripting with speech constraint, and Forced-Neutral bundles forced speech with context-length, attention, and timing changes that cannot be separated from the 'silence signal broken' interpretation.",
+    "kill_B": "The predicted triple interaction is the straightforward Bayesian intersection of three already-published findings: Okamoto's penalty paradox (fine raises violations), 'Silence is Not Consensus' (2505.21503, silence signals norm-acceptance), and classical responsibility diffusion; the specific causal chain fine\u2192peer-silence\u2192norm-cascade produces no prediction that would surprise someone familiar with these three results, making it a composition of known effects rather than a distinct novel contribution."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "If agents treat 'Forced-Neutral' speech as coerced system noise rather than a genuine peer signal, the fine effect will persist despite the manipulation, proving the fine acts as a direct price or norm signal independent of the silence mechanism.",
+    "kill_B": "The 3-way interaction design buffers falsification; if the effect persists in any single cell (e.g., known-p), the thesis can retreat to 'epistemic uncertainty' rather than responsibility shift. Additionally, 'Overseer-No-Fine' may collapse into 'None' if agents infer latent enforcement capability, confounding the responsibility-shift mechanism with mere surveillance."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 3,
+    "kill_A": "The Fine vs No-Fine contrast has no Overseer-No-Fine arm, so any 'fine' effect is indistinguishable from a pure overseer-presence effect; the claimed causal role of the fine is unsupported regardless of speech-freedom interactions.",
+    "kill_B": "The 'known p' manipulation bundles ambiguity-to-risk transition with detection information; if known-p suppresses baseline violations to a floor, the predicted triple interaction and Fine-vs-Overseer-No-Fine contrast become uninterpretable, so the effect could be ambiguity aversion or a floor artifact rather than responsibility shift."
+   },
+   {
+    "role": "feasibility",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Forcing peer speech (Forced-Neutral/Objection) creates a massive confound in the social context; the mere presence of scripted, unnatural speech may trigger 'test-awareness' or 'persona shift' in observers, making the reduction in violations a result of breaking the simulation's realism rather than breaking the silence signal.",
+    "kill_B": "The 'unknown p' condition is a bundled manipulation; if agents are uncertain about detection, they may use CoT to rationalize violation based on perceived risk, confounding the 'peer silence as norm signal' mechanism with simple risk-assessment shifts."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The Forced-Objection and Forced-Neutral arms script peer speech as fixed transcripts shown to one focal agent with no live-agent arm \u2014 exactly the listed 'single-agent vignette' failure mode \u2014 and with no detection-probability manipulation, observed silence stays confounded between 'norm accepted' and 'detection is low,' so the mediation claim cannot separate social inference from a rational price calculation, and forced speech bundles silence-removal with monitoring-salience.",
+    "kill_B": "The headline contrast is confounded by objection opportunity: the fine also suppresses the very violations peers would object to, so 'Fine reduces objections ~20pp vs Overseer-No-Fine' may simply reflect fewer violation events to object about rather than crowding-out of peer policing, and the design never states objections are conditioned on witnessed violations; a 12-cell triple interaction at p<.01 from ~2,000 episodes is also likely underpowered and exposed to low baseline-objection ..."
+   }
+  ]
+ },
+ {
+  "a": "full2:c052",
+  "b": "full1:c064",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Forced-speech arms use scripted peer transcripts (explicitly flagged as single-agent vignette); the penalty paradox is already published (Okamoto et al.); silence-as-norm-signal overlaps with Silence is Not Consensus (2505.21503) and Silent Dissent (2610.02702); forced speech is a bundled manipulation that cannot separate silence-as-signal from monitoring salience, attention, or information-environment changes; and mediation through endogenous silence rates is circular.",
+    "kill_B": "Retaliation suppressing reporting is already anticipated by 'anonymous reporting against retaliation' (arXiv:2604.23511); the reshuffling design is a standard stranger-vs-partner matching technique from experimental economics, so this is a known method applied to a new domain rather than a conceptually novel contribution."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Forced-Neutral speech conflates 'breaking silence' with 'signaling consent,' allowing post-hoc rationalization that neutral speech confirmed the norm even if violations rise, plus the hypothesis bets on the fragile 'penalty paradox' base effect replicating in chosen models.",
+    "kill_B": "LLM continuity bias may cause agents to treat reshuffled partners as the same entity despite prompts, confounding 'targeted retaliation' with 'global reputation' and making a null difference between Fixed and Reshuffled uninterpretable regarding the mechanism."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The Free-silence condition conflates 'peers noticed and stayed silent' with 'peers did not notice,' while Forced-Objection/Forced-Neutral arms necessarily inject detection information via scripted speech; combined with the fact that peer speech is scripted (a single-agent vignette), the experiment cannot separate silence-as-norm-inference from detection inference or direct price effects.",
+    "kill_B": "The Fixed-vs-Reshuffled contrast is a bundled manipulation: if agent identities and report attribution persist in an 8-agent pool, reshuffled pairings do not guarantee the reporter will never meet the sanctioned agent again, so targeted retaliation is not cleanly severed from reputation and continuation value; any observed interaction could be driven by altered cooperation incentives rather than retaliation fear alone."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 1,
+    "kill_A": "The 'Forced-Neutral' arm is a bundled manipulation: forcing an agent to speak changes the conversational flow and social dynamics, meaning any reduction in violations could be due to the disruption of the 'silence' pattern rather than the absence of a specific norm-inference signal.",
+    "kill_B": "The 'Reshuffled' arm does not truly isolate retaliation if the agent cannot reliably identify the reporter's identity across rounds, making it a variation of the Anonymous arm and failing to separate targeted retaliation from general reputation risk."
+   },
+   {
+    "role": "importance",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "The decisive Forced arms are scripted peer transcripts, so the key Fine\u00d7Speech interaction compares live swarms against single-agent vignettes \u2014 and even ignoring that, a positive result cannot separate 'silence = norm accepted' from 'silence = detection is low' or a mere speaking-norm effect (Forced-Neutral speech itself signals an attentive peer), which is precisely the social-vs-detection confound the design brief forbids, and the whole interaction is second-order on a fine ...",
+    "kill_B": "Retaliation is never an implemented action in the stated environment: fixed-vs-reshuffled matching manipulates only dyadic continuation, so even the predicted pattern is equally consistent with pair-specific reciprocity, guilt, or fear of any ongoing strategic partner \u2014 the contrast isolates 'specific future interaction exists,' not 'targeted retaliation fear,' leaving the headline mechanism an over-claimed label the falsifiers cannot rescue."
+   }
+  ]
+ },
+ {
+  "a": "full2:c047",
+  "b": "full1:c064",
+  "verdicts": [
+   {
+    "role": "prior_art",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The Fine vs Overseer-No-Fine contrast bundles monetary signal, formality, consequence specificity, and responsibility cue simultaneously; the 'responsibility shift' is one of several explanations for why objections drop, and the broader concept of formal sanctions crowding out informal enforcement is established in the human crowding-out literature (Gneezy & Rustichini, Bowles & Polania-Reyes, Sunstein), so the first causal step may replicate known human results rather than offer conceptual novelty.",
+    "kill_B": "Fixed-vs-reshuffled partner matching is a textbook experimental-economics manipulation testing a standard game-theoretic prediction (targeted retaliation requires future interaction with the specific partner), and prior art already covers the retaliation-reporting link in LLM agents (arXiv:2604.23511); reshuffling also breaks partner-specific reciprocity and trust-building simultaneously, so it cannot cleanly isolate retaliation fear from all other partner-specific dynamics, making this a standard method applied to an obvious new domain."
+   },
+   {
+    "role": "falsifiability",
+    "winner": "B",
+    "margin": 3,
+    "kill_A": "Prior art 'Silence is Not Consensus' (2505.21503) and 'Silent Dissent' (2610.02702) directly contradict the core mechanism that LLMs infer norm acceptance from silence; additionally, 'responsibility shift' is confounded with simple deterrence without mechanistic evidence (e.g., probe/SAE) to separate peer-inhibition from overseer-reliance.",
+    "kill_B": "Statelessness of API agents may collapse the Fixed/Reshuffled distinction if identity isn't persistently tracked across rounds (false negative); alternatively, general conformity pressure might suppress reporting even in Reshuffled groups, falsifying the specific retaliation mechanism but leaving behavior unexplained."
+   },
+   {
+    "role": "confounds",
+    "winner": "B",
+    "margin": 2,
+    "kill_A": "Fine vs Overseer-No-Fine bundles deterrence with responsibility shift: the fine adds a real expected penalty at p=0.3 and thereby reduces underlying violations, so fewer peer objections may be a mechanical base-rate artifact rather than suppressed voice; there is no cost-matched control that isolates responsibility from Becker deterrence.",
+    "kill_B": "Fixed vs reshuffled partners confounds targetability with group stability/cohesion: fixed groups create shared history, in-group loyalty, and relational norms that independently discourage 'snitching', so the suppression interaction could reflect group identity/conformity rather than fear of targeted retaliation."
+   },
+   {
+    "role": "feasibility",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The 'Fine' vs 'Overseer-No-Fine' contrast is a bundled manipulation: a formal fine changes not just responsibility but the expressive signal of the norm's rigidity and the perceived legitimacy of the overseer.",
+    "kill_B": "Severing contact in reshuffled games ends the repeated game's continuation value and reputation, making it impossible to isolate 'targeted retaliation' from the general loss of long-term strategic coordination."
+   },
+   {
+    "role": "importance",
+    "winner": "A",
+    "margin": 2,
+    "kill_A": "The silence signal is doubly confounded: under unknown p, absent objections can mean 'norm accepted' or 'detection is low', and the design's own cells (known-p, hidden-objections) block both readings simultaneously rather than orthogonally separating them, so even a significant triple interaction cannot attribute the cascade to responsibility-shift/norm signaling over plain detection-belief updating (already documented in the enforcement-gap and Konuganti results) \u2014 and belief-elicitation mediation rests on unfaithful CoT and endogenous ...",
+    "kill_B": "The environment specifies no retaliation affordance \u2014 fined agents cannot sanction, exclude, or act against the reporter in later rounds \u2014 so 'targeted retaliation' exists only as prompt text and fixed-vs-reshuffled becomes a framing string on a single focal decision (the exact relabelled single-agent vignette failure mode); worse, in an 8-agent common pool everyone interacts with everyone each round, so reshuffling may not even change contact structure unless the game ..."
+   }
+  ]
+ }
+]

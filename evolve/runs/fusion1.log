@@ -25,3 +25,5 @@ climb c039 r5: c061 wins 0/5
 climb c003 r8: c062 wins 4/5
 climb c039 r6: c063 wins 3/5
 climb c039 r7: c064 wins 4/5
+climb c039 r8: c065 wins 4/5
+done: $7.18, 727 calls, 6 errors
