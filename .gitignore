@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 *.key
 .env
+interp/acts.npz
+interp/spec_*.json

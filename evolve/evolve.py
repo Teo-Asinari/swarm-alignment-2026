@@ -75,7 +75,7 @@ def call(model, instructions, prompt, retries=3):
                 COST["errors"] += 1
             if attempt == retries - 1:
                 raise
-            time.sleep(2 * (attempt + 1) + random.random())
+            time.sleep(61 if '429' in str(e) else 2 * (attempt + 1) + random.random())
 
 
 def parse_json(text):

@@ -1,10 +1,1 @@
-gen error: glm-5.2 Error code: 429 - {'error': {'message': 'Inference rate limit reached for this user; retry after 60 seconds', 'type': 'rate_limit_error', 'param': None, 'code': 'rate_limit_exceeded'}}
-gen error: qwen3.5-397b Error code: 429 - {'error': {'message': 'Inference rate limit reached for this user; retry after 60 seconds', 'type': 'rate_limit_error', 'param': None, 'code': 'rate_limit_exceeded'}}
-gen error: deepseek-v4-flash Error code: 429 - {'error': {'message': 'Inference rate limit reached for this user; retry after 60 seconds', 'type': 'rate_limit_error', 'param': None, 'code': 'rate_limit_exceeded'}}
-gen 1: best c001 elo 1000 | $0.00 0 calls
-Traceback (most recent call last):
-  File "/home/tasinari/my_repos/swarm-alignment-2026/evolve/evolve.py", line 543, in main
-    evolve(args, pop, ctx, seeds)
-  File "/home/tasinari/my_repos/swarm-alignment-2026/evolve/evolve.py", line 397, in evolve
-    b = min((c for c in keep if c is not a), key=lambda c: similar(a, c))
-ValueError: min() arg is an empty sequence
+gen 1: best c003 elo 1106 | $1.23 141 calls
