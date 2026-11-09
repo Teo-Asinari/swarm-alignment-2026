@@ -1,6 +1,6 @@
 # Findings log: Swarm Alignment sprint (Apart, Nov 2026)
 
-Status as of 2026-11-08. The deadline is 23:59 AoE.
+Status: submitted 2026-11-08 (Tracks 2 and 4). Report: `paper/report.pdf`.
 
 ## 1. Hypothesis evolver (`evolve/evolve.py`)
 
