@@ -4,3 +4,7 @@ __pycache__/
 .env
 interp/acts.npz
 interp/spec_*.json
+paper/*.aux
+paper/*.log
+paper/*.out
+interp/*.log
